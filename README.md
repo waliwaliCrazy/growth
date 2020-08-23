@@ -1,11 +1,5 @@
-<h1> growth </h1>
+# growth
 
-**Table of Contents**
-- [前言](#前言)
-- [文章列表](#文章列表)
-
-
-# 前言
 
 # 文章列表
 
