@@ -10,6 +10,7 @@
 # 文章列表
 
 - [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./articles/go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
+- [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
 
 
 ---
