@@ -1,4 +1,4 @@
-# growth
+# Growth
 
 
 # 文章列表
