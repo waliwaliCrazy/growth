@@ -7,7 +7,8 @@
 - [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
 - [JAVA | Guava EventBus 使用](./articles/java/Guava%20EventBus%20使用.md)
 - [JAVA | Mybatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
-
+- [JAVA | JAVA 解决跨域问题](./articles/java/Java%20解决跨域问题.md)
+- [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
 
 
 
