@@ -5,7 +5,6 @@
 ---
 
 **Table of Contents**
-
 - [系列文章目录](#系列文章目录)
 - [前言](#前言)
 - [一、为什么要用 Observer模式以及 EventBus 优点 ？](#一为什么要用-observer模式以及-eventbus-优点-)
@@ -18,6 +17,7 @@
 - [参考](#参考)
 
 ---
+
 # 前言
 
 EventBus 是 Guava 的事件处理机制，是观察者模式（生产/消费模型）的一种实现。
@@ -225,8 +225,6 @@ public interface SubscriberExceptionHandler {
 }
 ```
 
-
-
 # 总结
 在上面的基础上，我们可以定义一些消息类型来实现不同消息的监听和处理，通过实现 `SubscriberExceptionHandler` 来处理异常的情况，无论时同步还是异步都能游刃有余 
 
@@ -234,6 +232,3 @@ public interface SubscriberExceptionHandler {
 - https://github.com/google/guava
 - https://github.com/greenrobot/EventBus
 - https://github.com/ReactiveX/RxJava
-
----
-![红色图片](https://img-blog.csdnimg.cn/20200823205821154.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3p5bmRldg==,size_16,color_FFFFFF,t_70#pic_center)
