@@ -16,7 +16,7 @@
   - [三、实现 WebMvcConfigurer](#三实现-webmvcconfigurer)
   - [四、使用Nginx配置](#四使用nginx配置)
   - [五、使用 `@CrossOrgin` 注解](#五使用-crossorgin-注解)
-  - [Spring Cloud Gateway 跨域配置](#spring-cloud-gateway-跨域配置)
+- [Spring Cloud Gateway 跨域配置](#spring-cloud-gateway-跨域配置)
 
 ---
 
@@ -163,7 +163,7 @@ public class UserController {
 ```
 
 
-## Spring Cloud Gateway 跨域配置
+# Spring Cloud Gateway 跨域配置
 
 ```yaml
 spring: 
