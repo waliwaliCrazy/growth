@@ -4,7 +4,7 @@
 
 [Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](https://blog.csdn.net/zyndev/article/details/108172504)
 
-<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+---
 
 **Table of Contents**
 
@@ -12,11 +12,11 @@
 - [前言](#前言)
 - [一、关于跨域解决方案](#一关于跨域解决方案)
 - [二、使用步骤](#二使用步骤)
-  - [1. 编写一个中间件](#1-编写一个中间件)
-  - [2. 使用](#2-使用)
-  - [3. 注意事项](#3-注意事项)
+	- [1. 编写一个中间件](#1-编写一个中间件)
+	- [2. 使用](#2-使用)
+	- [3. 注意事项](#3-注意事项)
 
-<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
+---
 
 # 前言
 在前后端分离的项目中，经常会遇到跨域问题，遇到问题该如何解决呢？！
