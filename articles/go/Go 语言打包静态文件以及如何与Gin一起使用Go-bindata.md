@@ -1,3 +1,5 @@
+<h1> Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata </h1>
+
 # 系列文章目录
 
 第一章 Go 语言打包静态文件以及如何与Gin一起使用Go-bindata
