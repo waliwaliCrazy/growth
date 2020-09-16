@@ -197,21 +197,24 @@ go-bindata-assetfs -o=asset/asset.go -pkg=asset template/... conf/...
 ```go
 r := gin.Default()
 
-fs := assetfs.AssetFS{Asset: asset.Asset, AssetDir: asset.AssetDir, AssetInfo: asset.AssetInfo, Prefix: "template", Fallback: "index.html"}
+fsCss := assetfs.AssetFS{Asset: asset.Asset, AssetDir: asset.AssetDir, AssetInfo: asset.AssetInfo, Prefix: "dist/css", Fallback: "index.html"}
+fsFonts := assetfs.AssetFS{Asset: asset.Asset, AssetDir: asset.AssetDir, AssetInfo: asset.AssetInfo, Prefix: "dist/fonts", Fallback: "index.html"}
+fsImg := assetfs.AssetFS{Asset: asset.Asset, AssetDir: asset.AssetDir, AssetInfo: asset.AssetInfo, Prefix: "dist/img", Fallback: "index.html"}
+fsJs := assetfs.AssetFS{Asset: asset.Asset, AssetDir: asset.AssetDir, AssetInfo: asset.AssetInfo, Prefix: "dist/js", Fallback: "index.html"}
+fs := assetfs.AssetFS{Asset: asset.Asset, AssetDir: asset.AssetDir, AssetInfo: asset.AssetInfo, Prefix: "dist", Fallback: "index.html"}
 
-r.StaticFS("/css", &fs)
-r.StaticFS("/fonts", &fs)
-r.StaticFS("/img", &fs)
-r.StaticFS("/js", &fs)
+r.StaticFS("/css", &fsCss)
+r.StaticFS("/fonts", &fsFonts)
+r.StaticFS("/img", &fsImg)
+r.StaticFS("/js", &fsJs)
 r.StaticFS("/favicon.ico", &fs)
-r.StaticFS("/index", &fs)
 
 r.GET("/", func(c *gin.Context) {
-	c.Writer.WriteHeader(200)
-	indexHtml, _ := asset.Asset("template/index.html")
-	_, _ = c.Writer.Write(indexHtml)
-	c.Writer.Header().Add("Accept", "text/html")
-	c.Writer.Flush()
+    c.Writer.WriteHeader(200)
+    indexHtml, _ := asset.Asset("dist/index.html")
+    _, _ = c.Writer.Write(indexHtml)
+    c.Writer.Header().Add("Accept", "text/html")
+    c.Writer.Flush()
 })
 ```
 
