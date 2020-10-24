@@ -25,10 +25,11 @@ Lombok 项目是一个 Java 库，它会自动插入编辑器和构建工具中�
 > 
 > Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java. Never write another getter or equals method again, with one annotation your class has a fully featured builder, automate your logging variables, and much more.
 
-大概的意思：Lombok是一个Java库，能自动插入编辑器并构建工具，简化Java开发。通过添加注解的方式，不需要为类编写getter或eques方法，同时可以自动化日志变量。[官网链接](https://www.projectlombok.org/)
+翻译之后就是：
 
-简而言之：Lombok能以简单的注解形式来简化java代码，提高开发人员的开发效率。
-[博客及源码GitHub链接](https://github.com/JourWon/test-lombok)
+Lombok 项目是一个 Java 库，它会自动插入您的编辑器和构建工具中，简化您的 Java 。 不需要再写另一个 getter、setter、toString 或 equals 方法，带有一个注释的您的类有一个功能全面的生成器，可以自动化您的日志记录变量，以及更多其他功能
+
+[官网链接](https://www.projectlombok.org/)
 
 ## 2.Lombok使用
 
