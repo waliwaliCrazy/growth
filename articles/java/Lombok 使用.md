@@ -11,19 +11,24 @@ Lombok 项目是一个 Java 库，它会自动插入编辑器和构建工具中�
   - [安装插件(可选)](#安装插件可选)
   - [示例](#示例)
   - [全部注解](#全部注解)
-- [Lombok工作原理](#lombok工作原理)
+  - [综合实例](#综合实例)
+    - [综合实例一](#综合实例一)
+    - [综合实例二](#综合实例二)
+    - [综合实例三](#综合实例三)
 - [Lombok的优缺点](#lombok的优缺点)
   - [解决编译时出错问题](#解决编译时出错问题)
 - [网上常见质疑](#网上常见质疑)
 - [参考](#参考)
+- [Lombok工作原理](#lombok工作原理)
 
 ---
 
 
 # 简介
 
->  
-> 官方介绍  
+  
+**官方介绍**
+
 > 
 > Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java. Never write another getter or equals method again, with one annotation your class has a fully featured builder, automate your logging variables, and much more.
 
@@ -149,7 +154,7 @@ public class User {
 }
 ```
 
-使用 @Data 注解会在编译的时候自动生成以下模板代码:
+使用 `@Data` 注解会在编译的时候自动生成以下模板代码:
 
 - toString
 - equals
@@ -192,7 +197,419 @@ public class User {
 
 关于所有的注解可以查看 https://projectlombok.org/features/all
 
+## 综合实例
+
+### 综合实例一
+
+```java
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter                     // 生成 getter
+@AllArgsConstructor         // 生成所有的参数
+@RequiredArgsConstructor    // 生成必要参数的构造器
+@ToString           // 生成 toString
+@EqualsAndHashCode  // 生成 equals 和 hashCode
+@Builder            // 生成一个 builder
+public class UserLombok {
+
+  // 创建 setter 并且校验 id 不能为空
+  @Setter
+  @NonNull
+  private Integer id;
+
+  // 创建 setter 且生成方法的访问级别为 PROTECTED
+  @Setter(AccessLevel.PROTECTED)
+  private Integer age;
+
+  // 创建 setter 不校验是否为空
+  @Setter
+  private String realName;
+
+  // 构造器，校验 id 不能为空
+  public UserLombok(@NonNull Integer id, Integer age) {
+    this.id = id;
+    this.age = age;
+  }
+
+  /**
+   * 自定义 realName 的 setter 方法，这个优先高于 Lombok
+   * @param realName 真实姓名
+   */
+  public void setRealName(String realName) {
+    this.realName = "realName：" + realName;
+  }
+}
+
+```
+
+具体生成的类为
+
+```java
+import lombok.NonNull;
+
+public class UserLombok {
+  @NonNull
+  private Integer id;
+  private Integer age;
+  private String realName;
+
+  public UserLombok(@NonNull Integer id, Integer age) {
+    if (id == null) {
+      throw new NullPointerException("id is marked non-null but is null");
+    } else {
+      this.id = id;
+      this.age = age;
+    }
+  }
+
+  public void setRealName(String realName) {
+    this.realName = "realName：" + realName;
+  }
+
+  public static UserLombok.UserLombokBuilder builder() {
+    return new UserLombok.UserLombokBuilder();
+  }
+
+  @NonNull
+  public Integer getId() {
+    return this.id;
+  }
+
+  public Integer getAge() {
+    return this.age;
+  }
+
+  public String getRealName() {
+    return this.realName;
+  }
+
+  public UserLombok(@NonNull Integer id, Integer age, String realName) {
+    if (id == null) {
+      throw new NullPointerException("id is marked non-null but is null");
+    } else {
+      this.id = id;
+      this.age = age;
+      this.realName = realName;
+    }
+  }
+
+  public UserLombok(@NonNull Integer id) {
+    if (id == null) {
+      throw new NullPointerException("id is marked non-null but is null");
+    } else {
+      this.id = id;
+    }
+  }
+
+  public String toString() {
+    return "UserLombok(id=" + this.getId() + ", age=" + this.getAge() + ", realName=" + this.getRealName() + ")";
+  }
+
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    } else if (!(o instanceof UserLombok)) {
+      return false;
+    } else {
+      UserLombok other = (UserLombok)o;
+      if (!other.canEqual(this)) {
+        return false;
+      } else {
+        label47: {
+          Object this$id = this.getId();
+          Object other$id = other.getId();
+          if (this$id == null) {
+            if (other$id == null) {
+              break label47;
+            }
+          } else if (this$id.equals(other$id)) {
+            break label47;
+          }
+
+          return false;
+        }
+
+        Object this$age = this.getAge();
+        Object other$age = other.getAge();
+        if (this$age == null) {
+          if (other$age != null) {
+            return false;
+          }
+        } else if (!this$age.equals(other$age)) {
+          return false;
+        }
+
+        Object this$realName = this.getRealName();
+        Object other$realName = other.getRealName();
+        if (this$realName == null) {
+          if (other$realName != null) {
+            return false;
+          }
+        } else if (!this$realName.equals(other$realName)) {
+          return false;
+        }
+
+        return true;
+      }
+    }
+  }
+
+  protected boolean canEqual(Object other) {
+    return other instanceof UserLombok;
+  }
+
+  public int hashCode() {
+    int PRIME = true;
+    int result = 1;
+    Object $id = this.getId();
+    int result = result * 59 + ($id == null ? 43 : $id.hashCode());
+    Object $age = this.getAge();
+    result = result * 59 + ($age == null ? 43 : $age.hashCode());
+    Object $realName = this.getRealName();
+    result = result * 59 + ($realName == null ? 43 : $realName.hashCode());
+    return result;
+  }
+
+  public void setId(@NonNull Integer id) {
+    if (id == null) {
+      throw new NullPointerException("id is marked non-null but is null");
+    } else {
+      this.id = id;
+    }
+  }
+
+  protected void setAge(Integer age) {
+    this.age = age;
+  }
+
+  public static class UserLombokBuilder {
+    private Integer id;
+    private Integer age;
+    private String realName;
+
+    UserLombokBuilder() {
+    }
+
+    public UserLombok.UserLombokBuilder id(@NonNull Integer id) {
+      if (id == null) {
+        throw new NullPointerException("id is marked non-null but is null");
+      } else {
+        this.id = id;
+        return this;
+      }
+    }
+
+    public UserLombok.UserLombokBuilder age(Integer age) {
+      this.age = age;
+      return this;
+    }
+
+    public UserLombok.UserLombokBuilder realName(String realName) {
+      this.realName = realName;
+      return this;
+    }
+
+    public UserLombok build() {
+      return new UserLombok(this.id, this.age, this.realName);
+    }
+
+    public String toString() {
+      return "UserLombok.UserLombokBuilder(id=" + this.id + ", age=" + this.age + ", realName=" + this.realName + ")";
+    }
+  }
+}
+```
+
+### 综合实例二
+
+```java
+@Value
+public class UserLombok {
+
+  @NonNull
+  private Integer id;
+
+  // 这里的 setter 不会生成，所有没用，这里反面示例
+  @Setter(AccessLevel.PROTECTED)
+  private Integer age;
+
+  private String realName;
+
+}
+```
+
+`@Value` 是 `ToString、EqualsAndHashCode、AllArgsConstructor、Getter` 的组合注解
+
+生成的代码
+
+```java
+import lombok.NonNull;
+
+public final class UserLombok {
+  @NonNull
+  private final Integer id;
+  private final Integer age;
+  private final String realName;
+
+  public UserLombok(@NonNull Integer id, Integer age, String realName) {
+    if (id == null) {
+      throw new NullPointerException("id is marked non-null but is null");
+    } else {
+      this.id = id;
+      this.age = age;
+      this.realName = realName;
+    }
+  }
+
+  @NonNull
+  public Integer getId() {
+    return this.id;
+  }
+
+  public Integer getAge() {
+    return this.age;
+  }
+
+  public String getRealName() {
+    return this.realName;
+  }
+
+  public boolean equals(Object o) {
+    if (o == this) {
+      return true;
+    } else if (!(o instanceof UserLombok)) {
+      return false;
+    } else {
+      UserLombok other;
+      label44: {
+        other = (UserLombok)o;
+        Object this$id = this.getId();
+        Object other$id = other.getId();
+        if (this$id == null) {
+          if (other$id == null) {
+            break label44;
+          }
+        } else if (this$id.equals(other$id)) {
+          break label44;
+        }
+
+        return false;
+      }
+
+      Object this$age = this.getAge();
+      Object other$age = other.getAge();
+      if (this$age == null) {
+        if (other$age != null) {
+          return false;
+        }
+      } else if (!this$age.equals(other$age)) {
+        return false;
+      }
+
+      Object this$realName = this.getRealName();
+      Object other$realName = other.getRealName();
+      if (this$realName == null) {
+        if (other$realName != null) {
+          return false;
+        }
+      } else if (!this$realName.equals(other$realName)) {
+        return false;
+      }
+
+      return true;
+    }
+  }
+
+  public int hashCode() {
+    int PRIME = true;
+    int result = 1;
+    Object $id = this.getId();
+    int result = result * 59 + ($id == null ? 43 : $id.hashCode());
+    Object $age = this.getAge();
+    result = result * 59 + ($age == null ? 43 : $age.hashCode());
+    Object $realName = this.getRealName();
+    result = result * 59 + ($realName == null ? 43 : $realName.hashCode());
+    return result;
+  }
+
+  public String toString() {
+    return "UserLombok(id=" + this.getId() + ", age=" + this.getAge() + ", realName=" + this.getRealName() + ")";
+  }
+}
+```
+
+### 综合实例三
+
+日志使用
+
+```java
+import lombok.extern.java.Log;
+
+@Log
+public class LogLombok {
+
+  public void log() {
+    log.info("打个日志");
+  }
+}
+```
+
+生成后代码
+
+```java
+import java.util.logging.Logger;
+
+public class LogLombok {
+  private static final Logger log = Logger.getLogger(LogLombok.class.getName());
+
+  public LogLombok() {
+  }
+
+  public void log() {
+    log.info("打个日志");
+  }
+}
+```
+
+通过上面的示例，我们可以看出 Lombok 可以大大简化我们的代码
+
+# Lombok的优缺点
+
+**优点：**
+
+1. 提高开发效率，自动生成getter/setter、toString、builder 等，尤其是类不断改变过程中，
+
+1. 能通过注解的形式自动生成构造器、getter/setter、equals、hashcode、toString等方法，提高了一定的开发效率
+2. 让代码变得简洁，不用过多的去关注相应的方法
+3. 属性做修改时，也简化了维护为这些属性所生成的getter/setter方法等
+
+**缺点：**
+
+1. 不支持多种参数构造器的重载
+2. 虽然省去了手动创建getter/setter方法的麻烦，但大大降低了源代码的可读性和完整性，降低了阅读源代码的舒适度
+
+## 解决编译时出错问题
+
+编译时出错，可能是没有enable注解处理器。`Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
+
+# 网上常见质疑
+
+# 参考
+
+- https://projectlombok.org
+- https://github.com/rzwitserloot/lombok
+
 # Lombok工作原理
+
+> 工作原理来自网上资料
 
 在Lombok使用的过程中，只需要添加相应的注解，无需再为此写任何代码。自动生成的代码到底是如何产生的呢？
 
@@ -217,8 +634,6 @@ apt自JDK5产生，JDK7已标记为过期，不推荐使用，JDK8中已彻底�
 
 [JSR 269](https://jcp.org/en/jsr/detail?id=269)自JDK6加入，作为apt的替代方案，它解决了apt的两个问题，javac在执行的时候会调用实现了该API的程序，这样我们就可以对编译器做一些增强，javac执行的过程如下： 
 
-![lombok工作原理](https://raw.githubusercontent.com/JourWon/image/master/lombok/lombok%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png)
-
 Lombok本质上就是一个实现了“[JSR 269 API](https://www.jcp.org/en/jsr/detail?id=269)”的程序。在使用javac的过程中，它产生作用的具体流程如下：
 
 1. javac对源代码进行分析，生成了一棵抽象语法树（AST）
@@ -227,27 +642,3 @@ Lombok本质上就是一个实现了“[JSR 269 API](https://www.jcp.org/en/jsr/
 4. javac使用修改后的抽象语法树（AST）生成字节码文件，即给class增加新的节点（代码块）
 
 通过读Lombok源码，发现对应注解的实现都在HandleXXX中，比如@Getter注解的实现在HandleGetter.handle()。还有一些其它类库使用这种方式实现，比如[Google Auto](https://github.com/google/auto)、[Dagger](http://square.github.io/dagger/)等等。
-
-# Lombok的优缺点
-
-**优点：**
-
-1. 能通过注解的形式自动生成构造器、getter/setter、equals、hashcode、toString等方法，提高了一定的开发效率
-2. 让代码变得简洁，不用过多的去关注相应的方法
-3. 属性做修改时，也简化了维护为这些属性所生成的getter/setter方法等
-
-**缺点：**
-
-1. 不支持多种参数构造器的重载
-2. 虽然省去了手动创建getter/setter方法的麻烦，但大大降低了源代码的可读性和完整性，降低了阅读源代码的舒适度
-
-## 解决编译时出错问题
-
-编译时出错，可能是没有enable注解处理器。`Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
-
-# 网上常见质疑
-
-# 参考
-
-- https://projectlombok.org
-- https://github.com/rzwitserloot/lombok
