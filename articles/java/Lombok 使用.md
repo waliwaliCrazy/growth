@@ -17,6 +17,7 @@ Lombok 项目是一个 Java 库，它会自动插入编辑器和构建工具中�
     - [综合实例三](#综合实例三)
 - [Lombok的优缺点](#lombok的优缺点)
   - [解决编译时出错问题](#解决编译时出错问题)
+- [避坑指南](#避坑指南)
 - [网上常见质疑](#网上常见质疑)
 - [参考](#参考)
 - [Lombok工作原理](#lombok工作原理)
@@ -598,6 +599,16 @@ public class LogLombok {
 ## 解决编译时出错问题
 
 编译时出错，可能是没有启用注解处理器。`Build, Execution, Deployment > Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
+
+# 避坑指南
+
+- 尽量不要使用 `@Data` 注解, 这个注解太全了，不利于维护，除非你知道你在干什么
+- Java 默认机制如果有其他构造器，则不会生成无参构造器，在使用 `@AllArgsConstructor` 注解时，记得加上 `@NoArgsConstructor`
+- 如果类定义还在变化阶段，不建议使用 `@AllArgsConstructor` 注解
+- `@Setter`、`@Getter` 注解如果需要可以缩小使用范围
+- `@ToString` 注解默认不会生成父类的信息，如果需要生成需要 `@ToString(callSuper = true)` 
+- `@RequiredArgsConstructor` 和 `@NoArgsConstructor` 尽量不要一起使用，无参构造器无法处理 `@NonNull`，但在序列化/反序列化的还是需要提供无参的
+- 当团队决定不再使用 Lombok 的时候，可以使用 Lombok 插件的 Delombok 一键去除，在 `Refactor > Delombok` 中
 
 # 网上常见质疑
 
