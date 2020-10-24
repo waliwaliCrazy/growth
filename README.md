@@ -8,12 +8,13 @@
 1. [JAVA | Guava EventBus 使用](./articles/java/Guava%20EventBus%20使用.md)
 1. [JAVA | Mybatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
 1. [JAVA | JAVA 解决跨域问题](./articles/java/Java%20解决跨域问题.md)
-1. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
-1. [Python | python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
-1. [Git | Git Server 搭建](./articles/git/Git%20|%20Git%20Server%20搭建.md)
-1. [Algorithm | 斐波那契数列](articles/algorithm/斐波那契数列.md)
-2. [缓存 | 从本地缓存到分布式缓存](./artic/../articles/java/从本地缓存到分布式缓存.md)
-1. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
+2. [JAVA | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
+3. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
+4. [Python | python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
+5. [Git | Git Server 搭建](./articles/git/Git%20|%20Git%20Server%20搭建.md)
+6. [Algorithm | 斐波那契数列](articles/algorithm/斐波那契数列.md)
+7. [缓存 | 从本地缓存到分布式缓存](./artic/../articles/java/从本地缓存到分布式缓存.md)
+8. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
 
 
 ---
