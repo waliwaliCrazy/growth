@@ -585,20 +585,19 @@ public class LogLombok {
 
 **优点：**
 
-1. 提高开发效率，自动生成getter/setter、toString、builder 等，尤其是类不断改变过程中，
-
-1. 能通过注解的形式自动生成构造器、getter/setter、equals、hashcode、toString等方法，提高了一定的开发效率
-2. 让代码变得简洁，不用过多的去关注相应的方法
+1. 提高开发效率，自动生成getter/setter、toString、builder 等，尤其是类不断改变过程中，如果使用 IDEA 自动生成的代码，我们则需要不停的删除、重新生成，使用 Lombok 则自动帮助我们完成
+2. 让代码变得简洁，不用过多的去关注相应的模板方法，其中 getter/setter、toString、builder 均为模板代码，写着难受，不写还不行，而且在 java 14 已经开始计划支持 `record`, 也在帮我们从原生方面解决这种模板代码
 3. 属性做修改时，也简化了维护为这些属性所生成的getter/setter方法等
 
 **缺点：**
 
-1. 不支持多种参数构造器的重载
-2. 虽然省去了手动创建getter/setter方法的麻烦，但大大降低了源代码的可读性和完整性，降低了阅读源代码的舒适度
+1. 不同开发人员同时开发同一个使用 Lombok 项目、需要安装 Lombok 插件
+2. 不利于重构属性名称，对应的 setter、getter、builder, IDEA 无法帮助自动重构
+3. 有可能降低了源代码的可读性和完整性，降低了阅读源代码的舒适度，谁会去阅读模板代码呢
 
 ## 解决编译时出错问题
 
-编译时出错，可能是没有enable注解处理器。`Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
+编译时出错，可能是没有启用注解处理器。`Build, Execution, Deployment > Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
 
 # 网上常见质疑
 
