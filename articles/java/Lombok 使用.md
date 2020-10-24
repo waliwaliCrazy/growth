@@ -18,7 +18,6 @@ Lombok 项目是一个 Java 库，它会自动插入编辑器和构建工具中�
 - [Lombok的优缺点](#lombok的优缺点)
   - [解决编译时出错问题](#解决编译时出错问题)
 - [避坑指南](#避坑指南)
-- [网上常见质疑](#网上常见质疑)
 - [参考](#参考)
 - [Lombok工作原理](#lombok工作原理)
 
@@ -610,7 +609,7 @@ public class LogLombok {
 - `@RequiredArgsConstructor` 和 `@NoArgsConstructor` 尽量不要一起使用，无参构造器无法处理 `@NonNull`，但在序列化/反序列化的还是需要提供无参的
 - 当团队决定不再使用 Lombok 的时候，可以使用 Lombok 插件的 Delombok 一键去除，在 `Refactor > Delombok` 中
 
-# 网上常见质疑
+**再次注意**- `@AllArgsConstructor` 尽量不要使用
 
 # 参考
 
