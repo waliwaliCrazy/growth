@@ -9,11 +9,13 @@ Lombok 项目是一个 Java 库，它会自动插入编辑器和构建工具中�
 - [使用](#使用)
   - [添加maven依赖](#添加maven依赖)
   - [安装插件(可选)](#安装插件可选)
+  - [示例](#示例)
+  - [全部注解](#全部注解)
+- [Lombok工作原理](#lombok工作原理)
+- [Lombok的优缺点](#lombok的优缺点)
   - [解决编译时出错问题](#解决编译时出错问题)
-    - [2.4示例](#24示例)
-    - [2.5常用注解](#25常用注解)
-  - [3.Lombok工作原理](#3lombok工作原理)
-  - [Lombok的优缺点](#lombok的优缺点)
+- [网上常见质疑](#网上常见质疑)
+- [参考](#参考)
 
 ---
 
@@ -37,10 +39,10 @@ Lombok 项目是一个 Java 库，它会自动插入您的编辑器和构建工�
 
 ```java
 <dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.16</version>
-    <scope>provided</scope>
+  <groupId>org.projectlombok</groupId>
+  <artifactId>lombok</artifactId>
+  <version>1.18.16</version>
+  <scope>provided</scope>
 </dependency>
 ```
 
@@ -54,86 +56,85 @@ Lombok 项目是一个 Java 库，它会自动插入您的编辑器和构建工�
 
 首先在不安装插件的情况下，代码是可以正常的编译和运行的。如果不安装插件，IDEA 不会自动提示 Lombok 在编译时才会生成的一些样板方法，同样 IDEA 在校验语法正确性的时候也会提示有问题，会有大面积报红的代码
 
-## 解决编译时出错问题
 
-编译时出错，可能是没有enable注解处理器。`Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
 
-![开启注解配置](https://raw.githubusercontent.com/JourWon/image/master/lombok/%E5%BC%80%E5%90%AF%E6%B3%A8%E8%A7%A3%E9%85%8D%E7%BD%AE.png)
+## 示例
 
-### 2.4示例
-
-下面举两个栗子，看看使用lombok和不使用的区别。
+下面举两个栗子，看看使用 lombok 和不使用的区别
 
 创建一个用户类
 
-**不使用Lombok**
+**不使用 Lombok**
 
 ```java
-public class User implements Serializable {
+public class User {
+  private Integer id;
+  private Integer age;
+  private String realName;
 
-    private static final long serialVersionUID = -8054600833969507380L;
+  public User() {
+  }
 
-    private Integer id;
-
-    private String username;
-
-    private Integer age;
-
-    public User() {
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
 
-    public Integer getId() {
-        return id;
-    }
+    User user = (User) o;
 
-    public void setId(Integer id) {
-        this.id = id;
+    if (!Objects.equals(id, user.id)) {
+      return false;
     }
-
-    public String getUsername() {
-        return username;
+    if (!Objects.equals(age, user.age)) {
+      return false;
     }
+    return Objects.equals(realName, user.realName);
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + (age != null ? age.hashCode() : 0);
+    result = 31 * result + (realName != null ? realName.hashCode() : 0);
+    return result;
+  }
 
-    public Integer getAge() {
-        return age;
-    }
+  @Override
+  public String toString() {
+    return "User{" +
+        "id=" + id +
+        ", age=" + age +
+        ", realName='" + realName + '\'' +
+        '}';
+  }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+  public Integer getId() {
+    return id;
+  }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", age=" + age +
-                '}';
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        User user = (User) o;
-        return Objects.equals(id, user.id) &&
-                Objects.equals(username, user.username) &&
-                Objects.equals(age, user.age);
-    }
+  public Integer getAge() {
+    return age;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, username, age);
-    }
+  public void setAge(Integer age) {
+    this.age = age;
+  }
 
+  public String getRealName() {
+    return realName;
+  }
+
+  public void setRealName(String realName) {
+    this.realName = realName;
+  }
 }
 ```
 
@@ -141,69 +142,57 @@ public class User implements Serializable {
 
 ```java
 @Data
-public class User implements Serializable {
-
-    private static final long serialVersionUID = -8054600833969507380L;
-
-    private Integer id;
-
-    private String username;
-
-    private Integer age;
-
+public class User {
+  private Integer id;
+  private String username;
+  private Integer age;
 }
 ```
 
-编译源文件，然后反编译class文件，反编译结果如下图。说明@Data注解在类上，会为类的所有属性自动生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法。
+使用 @Data 注解会在编译的时候自动生成以下模板代码:
 
-![反编译用户类](https://raw.githubusercontent.com/JourWon/image/master/lombok/%E5%8F%8D%E7%BC%96%E8%AF%91%E7%94%A8%E6%88%B7%E7%B1%BB.png)
+- toString
+- equals
+- hashCode
+- getter 不会对 final 属性生成
+- setter 不会对 final 属性生成
+- 必要参数的构造器
 
-----
+关于什么是必要参数下面会举例说明
 
-自动化日志变量
 
-```java
-@Slf4j
-@RestController
-@RequestMapping(("/user"))
-public class UserController {
+## 全部注解
 
-    @GetMapping("/getUserById/{id}")
-    public User getUserById(@PathVariable Integer id) {
-        User user = new User();
-        user.setUsername("风清扬");
-        user.setAge(21);
-        user.setId(id);
+上面已经简单看了一下 `@Data` 注解，下面看下所有的可以用的注解
 
-        if (log.isInfoEnabled()) {
-            log.info("用户 {}", user);
-        }
+- **@NonNull** 注解在字段和构造器的参数上。注解在字段上，则在 setter, constructor 方法中加入判空，注意这里需要配合 @Setter、@RequiredArgsConstructor、@AllArgsConstructor 使用；注解在构造器方法参数上，则在构造的时候加入判空
+- **@Cleanup** 注解在本地变量上。负责清理资源，当方法直接结束时，会调用 close 方法
+- **@Setter** 注解在类或字段。注解在类时为所有字段生成setter方法，注解在字段上时只为该字段生成setter方法，同时可以指定生成的 setter 方法的访问级别
+- **@Getter** 使用方法同 @Setter，区别在于生成的是 getter 方法
+- **@ToString** 注解在类上。添加toString方法
+- **@EqualsAndHashCode** 注解在类。生成hashCode和equals方法
+- **@NoArgsConstructor** 注解在类。生成无参的构造方法。
+- **@RequiredArgsConstructor** 注解在类。为类中需要特殊处理的字段生成构造方法，比如 final 和被 @NonNull 注解的字段。
+- **@AllArgsConstructor** 注解在类，生成包含类中所有字段的构造方法。
+- **@Data** 注解在类，生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法。
+- **@Value** 注解在类和属性上。如果注解在类上在类实例创建后不可修改，即不会生成 setter 方法，这个会导致 `@Setter` 不起作用
+- **@Builder** 注解在类上，生成构造器
+- **@SneakyThrows**
+- **@Synchronized** 注解在方法上，生成同步方法
+- **@With**
+- 日志相关: 注解在类，生成 log 常量，类似 private static final xxx log
+  - **@Log** java.util.logging.Logger
+  - **@CommonsLog** org.apache.commons.logging.Log
+  - **@Flogger** com.google.common.flogger.FluentLogger
+  - **@JBossLog** org.jboss.logging.Logger
+  - **@Log4j** org.apache.log4j.Logger
+  - **@Log4j2** org.apache.logging.log4j.Logger
+  - **@Slf4j** org.slf4j.Logger
+  - **@XSlf4j** org.slf4j.ext.XLogger
 
-        return user;
-    }
+关于所有的注解可以查看 https://projectlombok.org/features/all
 
-}
-```
-
-通过反编译可以看到@Slf4j注解生成了log日志变量（严格意义来说是常量），无需去声明一个log就可以在类中使用log记录日志。
-
-![反编译用户controller类](https://raw.githubusercontent.com/JourWon/image/master/lombok/%E5%8F%8D%E7%BC%96%E8%AF%91%E7%94%A8%E6%88%B7controller%E7%B1%BB.png)
-
-### 2.5常用注解
-
-下面介绍一下常用的几个注解：
-
--  **@Setter** 注解在类或字段，注解在类时为所有字段生成setter方法，注解在字段上时只为该字段生成setter方法。
--  **@Getter** 使用方法同上，区别在于生成的是getter方法。
--  **@ToString** 注解在类，添加toString方法。
--  **@EqualsAndHashCode** 注解在类，生成hashCode和equals方法。
--  **@NoArgsConstructor** 注解在类，生成无参的构造方法。
--  **@RequiredArgsConstructor** 注解在类，为类中需要特殊处理的字段生成构造方法，比如final和被@NonNull注解的字段。
--  **@AllArgsConstructor** 注解在类，生成包含类中所有字段的构造方法。
--  **@Data** 注解在类，生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法。
--  **@Slf4j** 注解在类，生成log变量，严格意义来说是常量。private static final Logger log = LoggerFactory.getLogger(UserController.class);
-
-## 3.Lombok工作原理
+# Lombok工作原理
 
 在Lombok使用的过程中，只需要添加相应的注解，无需再为此写任何代码。自动生成的代码到底是如何产生的呢？
 
@@ -239,7 +228,7 @@ Lombok本质上就是一个实现了“[JSR 269 API](https://www.jcp.org/en/jsr/
 
 通过读Lombok源码，发现对应注解的实现都在HandleXXX中，比如@Getter注解的实现在HandleGetter.handle()。还有一些其它类库使用这种方式实现，比如[Google Auto](https://github.com/google/auto)、[Dagger](http://square.github.io/dagger/)等等。
 
-## Lombok的优缺点
+# Lombok的优缺点
 
 **优点：**
 
@@ -251,3 +240,14 @@ Lombok本质上就是一个实现了“[JSR 269 API](https://www.jcp.org/en/jsr/
 
 1. 不支持多种参数构造器的重载
 2. 虽然省去了手动创建getter/setter方法的麻烦，但大大降低了源代码的可读性和完整性，降低了阅读源代码的舒适度
+
+## 解决编译时出错问题
+
+编译时出错，可能是没有enable注解处理器。`Annotation Processors > Enable annotation processing`。设置完成之后程序正常运行。
+
+# 网上常见质疑
+
+# 参考
+
+- https://projectlombok.org
+- https://github.com/rzwitserloot/lombok
