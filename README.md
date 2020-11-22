@@ -16,6 +16,7 @@
 7. [缓存 | 从本地缓存到分布式缓存](./artic/../articles/java/从本地缓存到分布式缓存.md)
 8. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
 9. [Spring Boot | 创建一个 Spring Boot 项目都需要做什么](articles/java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
+10. [工具 | 听说你还在找 ](./articles/tools/IDEA_EAP.md)
 
 
 ---
