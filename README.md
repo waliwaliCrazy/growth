@@ -5,10 +5,10 @@
 
 1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./articles/go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
 1. [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
-1. [JAVA | Guava EventBus 使用](./articles/java/Guava%20EventBus%20使用.md)
-1. [JAVA | Mybatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
-1. [JAVA | JAVA 解决跨域问题](./articles/java/Java%20解决跨域问题.md)
-2. [JAVA | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
+1. [Java | Guava EventBus 使用](./articles/java/Guava%20EventBus%20使用.md)
+1. [Java | Mybatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
+1. [Java | Java 解决跨域问题](./articles/java/Java%20解决跨域问题.md)
+2. [Java | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
 3. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
 4. [Python | python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
 5. [Git | Git Server 搭建](./articles/git/Git%20|%20Git%20Server%20搭建.md)
@@ -16,7 +16,7 @@
 7. [缓存 | 从本地缓存到分布式缓存](./artic/../articles/java/从本地缓存到分布式缓存.md)
 8. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
 9. [Spring Boot | 创建一个 Spring Boot 项目都需要做什么](articles/java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
-10. [工具 | 听说你还在找 ](./articles/tools/IDEA_EAP.md)
+10. [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
 
 
 ---

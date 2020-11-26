@@ -1,4 +1,4 @@
-<h1> JAVA | Guava EventBus 使用 </h1>
+<h1> Guava EventBus 使用 </h1>
 
 # 系列文章目录
 
