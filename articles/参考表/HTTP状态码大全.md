@@ -65,17 +65,34 @@ HTTP 状态码的英文为 HTTP Status Code。
 
 ## 102 Processing
 
-WebDAV请求可能包含许多涉及文件操作的子请求，需要很长时间才能完成请求。该代码表示服务器已经收到并正在处理请求，但无响应可用。[6]这样可以防止客户端超时，并假设请求丢失。
+由WebDAV（RFC 2518）扩展的状态码，代表处理将被继续执行。
 
 # 2xx成功
 
 ## 200 OK
+
+请求已成功，请求所希望的响应头或数据体将随此响应返回。
+
 ## 201 Created
+
+请求已经被实现，而且有一个新的资源已经依据请求的需要而创建，且其URI已经随Location头信息返回。
+
 ## 202 Accepted
+
+服务器已接受请求，但尚未处理。
+
 ## 203 Non-Authoritative Information
 ## 204 No Content
+
+服务器成功处理了请求，没有返回任何内容。
+
 ## 205 Reset Content
+
+服务器成功处理了请求，但没有返回任何内容。与204响应不同，此响应要求请求者重置文档视图。
+
 ## 206 Partial Content
+
+服务器已经成功处理了部分GET请求。类似于FlashGet或者迅雷这类的HTTP下载工具都是使用此类响应实现断点续传或者将一个大文档分解为多个下载段同时下载。[14]
 ## 207 Multi-Status
 
 # 3xx重定向
@@ -110,7 +127,7 @@ WebDAV请求可能包含许多涉及文件操作的子请求，需要很长时�
 - 416 Requested Range Not Satisfiable
 - 417 Expectation Failed
 - 418 I'm a teapot
-- 421Misdirected Request
+- 421 Misdirected Request
 - 422 Unprocessable Entity
 - 423 Locked
 - 424 Failed Dependency
@@ -118,7 +135,6 @@ WebDAV请求可能包含许多涉及文件操作的子请求，需要很长时�
 - 426 Upgrade Required
 - 449 Retry With
 - 451 Unavailable For Legal Reasons
-
 
 # 5xx服务器错误
 
@@ -132,7 +148,6 @@ WebDAV请求可能包含许多涉及文件操作的子请求，需要很长时�
 - 507 Insufficient Storage
 - 509 Bandwidth Limit Exceeded
 - 510 Not Extended
-
 
 # 参考
 
