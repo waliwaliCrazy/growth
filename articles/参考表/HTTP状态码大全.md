@@ -6,7 +6,18 @@ HTTP 状态码 HTTP Status Code
 
 - [HTTP状态码大全](#http状态码大全)
 - [1xx消息](#1xx消息)
+  - [100 Continue](#100-continue)
+  - [101 Switching Protocols](#101-switching-protocols)
+  - [102 Processing](#102-processing)
 - [2xx成功](#2xx成功)
+  - [200 OK](#200-ok)
+  - [201 Created](#201-created)
+  - [202 Accepted](#202-accepted)
+  - [203 Non-Authoritative Information](#203-non-authoritative-information)
+  - [204 No Content](#204-no-content)
+  - [205 Reset Content](#205-reset-content)
+  - [206 Partial Content](#206-partial-content)
+  - [207 Multi-Status](#207-multi-status)
 - [3xx重定向](#3xx重定向)
 - [4xx客户端错误](#4xx客户端错误)
 - [5xx服务器错误](#5xx服务器错误)
@@ -44,20 +55,28 @@ HTTP 状态码的英文为 HTTP Status Code。
 
 这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。由于HTTP/1.0协议中没有定义任何1xx状态码，所以除非在某些试验条件下，服务器禁止向此类客户端发送1xx响应。这些状态码代表的响应都是信息性的，标示客户应该采取的其他行动。
 
-- 100 Continue
-- 101 Switching Protocols
-- 102 Processing
+## 100 Continue
+
+服务器已经接收到请求头，并且客户端应继续发送请求主体（在需要发送身体的请求的情况下：例如，POST请求），或者如果请求已经完成，忽略这个响应。服务器必须在请求完成后向客户端发送一个最终响应。要使服务器检查请求的头部，客户端必须在其初始请求中发送Expect: 100-continue作为头部，并在发送正文之前接收100 Continue状态代码。响应代码417期望失败表示请求不应继续。
+
+## 101 Switching Protocols
+
+服务器已经理解了客户端的请求，并将通过 `Upgrade` 消息头通知客户端采用不同的协议来完成这个请求。在发送完这个响应最后的空行后，服务器将会切换到在 `Upgrade` 消息头中定义的那些协议。
+
+## 102 Processing
+
+WebDAV请求可能包含许多涉及文件操作的子请求，需要很长时间才能完成请求。该代码表示服务器已经收到并正在处理请求，但无响应可用。[6]这样可以防止客户端超时，并假设请求丢失。
 
 # 2xx成功
 
-- 200 OK
-- 201 Created
-- 202 Accepted
-- 203 Non-Authoritative Information
-- 204 No Content
-- 205 Reset Content
-- 206 Partial Content
-- 207 Multi-Status
+## 200 OK
+## 201 Created
+## 202 Accepted
+## 203 Non-Authoritative Information
+## 204 No Content
+## 205 Reset Content
+## 206 Partial Content
+## 207 Multi-Status
 
 # 3xx重定向
 
@@ -113,7 +132,7 @@ HTTP 状态码的英文为 HTTP Status Code。
 - 507 Insufficient Storage
 - 509 Bandwidth Limit Exceeded
 - 510 Not Extended
-- 600 Unparseable Response Headers
+
 
 # 参考
 
