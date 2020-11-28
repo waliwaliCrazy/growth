@@ -6,6 +6,7 @@
 
 - [Growth](#growth)
 - [文章列表](#文章列表)
+- [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
 
@@ -27,6 +28,10 @@
 8. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
 9. [Spring Boot | 创建一个 Spring Boot 项目都需要做什么](articles/java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
 10. [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
+
+# 性能优化
+
+1. [MySQL 常见优化方法](./articles/mysql/mysql%20常见优化方法.md)
 
 # 互联网资源 Digital Library
 
