@@ -6,6 +6,7 @@
 
 - [Growth](#growth)
 - [文章列表](#文章列表)
+- [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
 
 ---
@@ -27,9 +28,15 @@
 9. [Spring Boot | 创建一个 Spring Boot 项目都需要做什么](articles/java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
 10. [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
 
+# 互联网资源 Digital Library
+
+1. [常用工具集](./articles/DigitalLibrary/常用工具集.md)
+2. [网址大全](./articles/DigitalLibrary/常用网站.md)
+
 # 参考表
 
 1. [HTTP 状态码](articles/参考表/HTTP状态码大全.md)
+1. [HTTP 请求方法](articles/参考表/HTTP请求方法.md)
 
 ---
 
