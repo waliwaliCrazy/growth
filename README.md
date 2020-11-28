@@ -31,7 +31,7 @@
 
 # 性能优化
 
-1. [MySQL 常见优化方法](./articles/mysql/mysql%20常见优化方法.md)
+1. [MySQL 常见优化方法](./articles/mysql/MySQL%20常见优化方法.md)
 
 # 互联网资源 Digital Library
 
