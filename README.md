@@ -37,6 +37,7 @@
 
 1. [常用工具集](./articles/DigitalLibrary/常用工具集.md)
 2. [网址大全](./articles/DigitalLibrary/常用网站.md)
+3. [开发常用免费软件](./articles/DigitalLibrary/开发常用免费软件.md)
 
 # 参考表
 
