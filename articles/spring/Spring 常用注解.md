@@ -41,27 +41,18 @@
 
 在java配置类中使用@EnableAspectJAutoProxy注解开启Spring对AspectJ代理的支持（类上）
 
-5、@Bean的属性支持
+## @Bean的属性支持
 
-@Scope 设置Spring容器如何新建Bean实例（方法上，得有@Bean）
+- @Scope 设置Spring容器如何新建Bean实例（方法上，得有@Bean）其设置类型包括：
+  - Singleton （单例,一个Spring容器中只有一个bean实例，默认模式）,
+  - Protetype （每次调用新建一个bean）,
+  - Request （web项目中，给每个http request新建一个bean）,
+  - Session （web项目中，给每个http session新建一个bean）,
+  - GlobalSession（给每一个 global http session新建一个Bean实例）
 
-其设置类型包括：
-
-Singleton （单例,一个Spring容器中只有一个bean实例，默认模式）,
-
-Protetype （每次调用新建一个bean）,
-
-Request （web项目中，给每个http request新建一个bean）,
-
-Session （web项目中，给每个http session新建一个bean）,
-
-GlobalSession（给每一个 global http session新建一个Bean实例）
-
-@StepScope 在Spring Batch中还有涉及
-
-@PostConstruct 由JSR-250提供，在构造函数执行完之后执行，等价于xml配置文件中bean的initMethod
-
-@PreDestory 由JSR-250提供，在Bean销毁之前执行，等价于xml配置文件中bean的destroyMethod
+- @StepScope 在Spring Batch中还有涉及
+- @PostConstruct 由JSR-250提供，在构造函数执行完之后执行，等价于xml配置文件中bean的initMethod
+- @PreDestory 由JSR-250提供，在Bean销毁之前执行，等价于xml配置文件中bean的destroyMethod
 
 6、@Value注解
 
