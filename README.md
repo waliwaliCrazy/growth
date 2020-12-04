@@ -1,10 +1,9 @@
-# Growth
+<h1> Growth </h1>
 
 成长文档
 
 ---
 
-- [Growth](#growth)
 - [文章列表](#文章列表)
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
