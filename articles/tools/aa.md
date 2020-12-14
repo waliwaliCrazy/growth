@@ -37,13 +37,14 @@
 - 线程的生命周期
 
 ## 锁机制
-说说线程安全问题
-volatile 实现原理
-synchronize 实现原理
-synchronized 与 lock 的区别
-CAS 乐观锁
-ABA 问题
-乐观锁的业务场景及实现方式
+
+- 说说线程安全问题
+- volatile 实现原理
+- synchronize 实现原理
+- synchronized 与 lock 的区别
+- CAS 乐观锁
+- ABA 问题
+- 乐观锁的业务场景及实现方式
 
 # 核心篇
 ## 数据存储
