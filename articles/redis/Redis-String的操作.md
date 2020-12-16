@@ -1,6 +1,5 @@
------------------------
-Redis-string操作		|
------------------------
+<h1> Redis-string操作 </h1>
+
 	* string 是redis最基本的类型
 	  redis的string可以包含任何数据:图片(二进制数据),序列化的对象
 	  单个value值最大的上限是1GB

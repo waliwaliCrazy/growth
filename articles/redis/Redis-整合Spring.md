@@ -1,6 +1,4 @@
----------------------------
-Redis-整合spring			|
----------------------------
+<h1> Redis-整合spring </h1>
 
 <!-- 引入外部文件 -->
 <context:property-placeholder location="classpath:redis.properties" ignore-unresolvable="true"/>
