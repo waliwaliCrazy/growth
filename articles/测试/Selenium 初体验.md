@@ -1,67 +1,67 @@
 # selenium
 
+---
+
 **Table of Contents**
 <!-- TOC -->
 
 - [selenium](#selenium)
 - [简介和准备环境](#简介和准备环境)
-    - [简介](#简介)
-    - [环境](#环境)
+  - [简介](#简介)
+  - [环境](#环境)
 - [网站常用操作](#网站常用操作)
-    - [Selenium功能](#selenium功能)
-    - [测试常用操作](#测试常用操作)
-- [selenium实现](#selenium实现)
-    - [打开浏览器](#打开浏览器)
-    - [输入内容](#输入内容)
-    - [单击操作](#单击操作)
-    - [获取当前浏览器的url](#获取当前浏览器的url)
-    - [来点小操作](#来点小操作)
-    - [上传图片](#上传图片)
-- [整合js处理不方便的操作](#整合js处理不方便的操作)
-- [上传图片和上传文件](#上传图片和上传文件)
-- [保存cookie和验证码操作](#保存cookie和验证码操作)
-- [实战](#实战)
-- [关于flash上传文件或者图片的实现方案](#关于flash上传文件或者图片的实现方案)
-    - [autoit 简介](#autoit-简介)
-    - [autoit 使用](#autoit-使用)
+  - [Selenium功能](#selenium功能)
+  - [测试常用操作](#测试常用操作)
+- [Selenium实现](#selenium实现)
+  - [下载 WebDriver](#下载-webdriver)
+  - [打开浏览器](#打开浏览器)
+  - [输入内容](#输入内容)
+  - [单击操作](#单击操作)
+  - [获取当前浏览器的 url](#获取当前浏览器的-url)
+  - [来点小操作](#来点小操作)
+  - [上传图片](#上传图片)
 - [扩展阅读](#扩展阅读)
 
 <!-- /TOC -->
 
+---
+
 > 每一段旅程，都有风景.
 
-从去年开始接触`selenium`,中间间隔了几个月，最近几天又开始使用，在此总结一下这两次使用的经验
+从去年开始接触 `selenium` ,中间间隔了几个月，最近几天又开始使用，在此总结一下这两次使用的经验
 
 # 简介和准备环境
+
 ## 简介
 
-Selenium 是专门为Web应用程序编写的一个验收测试工具。Selenium测试直接运行在浏览器中，支持的浏览器包括IE、Mozilla Firefox、Mozilla Suite等。主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。
+Selenium 是专门为 Web 应用程序编写的一个验收测试工具。Selenium 测试直接运行在浏览器中，支持的浏览器包括IE、Chrome、Microsoft Edge、Mozilla Firefox、Mozilla Suite等。主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。
 
 对于一些复杂的网站，同样可以使用它进行爬取。
+
 ## 环境
 
 这里使用的`python`进行开发
 
-- python 3.6
-- webdriver
-- selenium
-- chrome or firefox
+- Python 3.9
+- Webdriver
+- Selenium
+- Microsoft Edge
 
-其中 webdriver 需要下载对应平台
+其中 Webdriver 需要根据不同的浏览器版本和操作系统下载对应版本
+
+- Microsoft Edge 下载地址[https://developer.microsoft.com/zh-cn/microsoft-edge/tools/webdriver/#downloads]
 
 selenium 可以使用 `pip install selenium` 安装
-
-> 国产浏览器是不可以的
 
 # 网站常用操作
 
 ## Selenium功能
 
-框架底层使用JavaScript模拟真实用户对浏览器进行操作。测试脚本执行时，浏览器自动按照脚本代码做出点击，输入，打开，验证等操作，就像真实用户所做的一样，从终端用户的角度测试应用程序。
+框架底层使用 JavaScript 模拟真实用户对浏览器进行操作。测试脚本执行时，浏览器自动按照脚本代码做出点击，输入，打开，验证等操作，就像真实用户所做的一样，从终端用户的角度测试应用程序。
 
 使浏览器兼容性测试自动化成为可能，尽管在不同的浏览器上依然有细微的差别。
 
-使用简单，可使用Java，Python等多种语言编写用例脚本
+使用简单，可使用 Java、Python 等多种语言编写用例脚本
 
 ## 测试常用操作
 
@@ -74,15 +74,31 @@ selenium 可以使用 `pip install selenium` 安装
 
 以上为常用操作，那以这些常用操作来开始以下叙述
 
-# selenium实现
+# Selenium实现
+
+## 下载 WebDriver
+
+Webdriver 需要根据不同的浏览器版本和操作系统下载对应版本
+
+- Microsoft Edge 下载地址 https://developer.microsoft.com/zh-cn/microsoft-edge/tools/webdriver/#downloads
+- Chrome 下载地址 http://chromedriver.storage.googleapis.com/index.html 备用地址 http://npm.taobao.org/mirrors/chromedriver
+- Firefox 下载地址 https://github.com/mozilla/geckodriver/releases
+
+从下载地址可以看出 Microsoft Edge 更加友好些，可以根据不同的版本和平台下载对应的版本
+
+![](./../../img/edge_webdriver.png)
 
 ## 打开浏览器
 
-测试肯定需要打开浏览器了，这里以chrome为例，
+测试肯定需要打开浏览器了，这里以 `Microsoft Edge(新版本)` 为例
 
 ```python
+from selenium import webdriver
+
+
 browser = webdriver.Chrome(CHROME_DRIVER_PATH)
 ```
+
 这样就可以初始化一个浏览器，这里打开`https://github.com/login`,
 
 ```python
@@ -93,6 +109,7 @@ browser.get('https://github.com/login')
 ## 输入内容
 
 登录之后我们可以看到，账号和密码的输入框，这时我们输入账号和密码
+
 ```python
 account_input = browser.find_element(By.CSS_SELECTOR, '#login_field')
 account_input.clear()
@@ -111,10 +128,11 @@ password_input.send_keys('********')
 
 ## 单击操作
 
-一般网页中会包含**按钮**、**选项卡**、**菜单**、**链接**等点击操作
+一般网页中会包含 **按钮**、**选项卡**、**菜单**、**链接** 等点击操作
 
-对应的selenium提供了
+对应的 selenium 提供了
 在上一步中，我们输入了账号和密码，这是需要单击一下登录按钮，来完成登录
+
 ```python
 login_button = browser.find_element_by_css_selector('.btn')
 login_button.click()
@@ -122,7 +140,7 @@ login_button.click()
 
 与输入内容相比，这里需要调用 `click` 来完成单击操作
 
-## 获取当前浏览器的url
+## 获取当前浏览器的 url
 
 当我们单击登录时，如果登录成功会跳转到 `https://github.com/`而不是继续留在`https://github.com/login`,
 
@@ -167,10 +185,12 @@ file_button.send_keys('/Users/zhangyunan/Downloads/2234.jpg')
 
 > 这里总结一下，今天就到这里了
 完整代码
+
 ```python
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
+
 
 browser = None
 
@@ -214,19 +234,6 @@ if __name__ == '__main__':
         print('login fail')
 
 ```
-
-# 整合js处理不方便的操作
-
-# 上传图片和上传文件
-
-# 保存cookie和验证码操作
-
-# 实战
-
-# 关于flash上传文件或者图片的实现方案
-## autoit 简介
-
-## autoit 使用
 
 # 扩展阅读
 
