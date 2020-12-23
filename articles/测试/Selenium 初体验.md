@@ -1,11 +1,8 @@
-# selenium
+<h1>Selenium 初体验</h1>
 
 ---
-
 **Table of Contents**
-<!-- TOC -->
 
-- [selenium](#selenium)
 - [简介和准备环境](#简介和准备环境)
   - [简介](#简介)
   - [环境](#环境)
@@ -20,27 +17,27 @@
   - [获取当前浏览器的 url](#获取当前浏览器的-url)
   - [来点小操作](#来点小操作)
   - [上传图片](#上传图片)
-- [扩展阅读](#扩展阅读)
-
-<!-- /TOC -->
 
 ---
 
 > 每一段旅程，都有风景.
 
-从去年开始接触 `selenium` ,中间间隔了几个月，最近几天又开始使用，在此总结一下这两次使用的经验
+从 17 年开始接触 `selenium` , 突然想写一篇，在此总结一下使用的经验
 
 # 简介和准备环境
 
 ## 简介
 
-Selenium 是专门为 Web 应用程序编写的一个验收测试工具。Selenium 测试直接运行在浏览器中，支持的浏览器包括IE、Chrome、Microsoft Edge、Mozilla Firefox、Mozilla Suite等。主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。
+Selenium 是专门为 Web 应用程序编写的一个验收测试工具。Selenium 测试直接运行在浏览器中，支持的浏览器包括IE、Chrome、Microsoft Edge、Mozilla Firefox、Mozilla Suite等。
+
+主要功能包括：测试与浏览器的兼容性——测试你的应用程序看是否能够很好得工作在不同浏览器和操作系统之上。
+
 
 对于一些复杂的网站，同样可以使用它进行爬取。
 
 ## 环境
 
-这里使用的`python`进行开发
+这里使用的 `python` 进行开发
 
 - Python 3.9
 - Webdriver
@@ -80,9 +77,9 @@ selenium 可以使用 `pip install selenium` 安装
 
 Webdriver 需要根据不同的浏览器版本和操作系统下载对应版本
 
-- Microsoft Edge 下载地址 https://developer.microsoft.com/zh-cn/microsoft-edge/tools/webdriver/#downloads
-- Chrome 下载地址 http://chromedriver.storage.googleapis.com/index.html 备用地址 http://npm.taobao.org/mirrors/chromedriver
-- Firefox 下载地址 https://github.com/mozilla/geckodriver/releases
+- **Microsoft Edge** https://developer.microsoft.com/zh-cn/microsoft-edge/tools/webdriver/#downloads
+- **Chrome** http://chromedriver.storage.googleapis.com/index.html 备用地址 http://npm.taobao.org/mirrors/chromedriver
+- **Firefox** https://github.com/mozilla/geckodriver/releases
 
 从下载地址可以看出 Microsoft Edge 更加友好些，可以根据不同的版本和平台下载对应的版本
 
@@ -235,12 +232,4 @@ if __name__ == '__main__':
 
 ```
 
-# 扩展阅读
-
 > 谢谢阅读
-
-
-
-
-
-
