@@ -123,6 +123,10 @@ public class Report2MybatisConfiguration {
     SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
     factoryBean.setDataSource(dataSource2());
 
+    org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
+    configuration.setMapUnderscoreToCamelCase(true);
+    factoryBean.setConfiguration(configuration);
+
     PageInterceptor pageInterceptor = new PageInterceptor();
     Properties properties = new Properties();
     properties.setProperty("helperDialect", "mysql");
