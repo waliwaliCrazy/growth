@@ -7,6 +7,7 @@
 - [jps 显示出所有的 JAVA 进程以及 PID](#jps-显示出所有的-java-进程以及-pid)
 - [jstat 查看堆内存各部分的使用量，以及加载类的数量](#jstat-查看堆内存各部分的使用量以及加载类的数量)
 - [jstack – 用来查看堆栈信息](#jstack--用来查看堆栈信息)
+- [参考文档](#参考文档)
 ---
 
 # jps 显示出所有的 JAVA 进程以及 PID
@@ -183,6 +184,240 @@ jstat -gcutil -h2 95980 1000 7
   0.00   0.00  61.23   9.87  93.02  91.01      7    0.081     2    0.080    0.161
 ```
 
-		
+其中每个 jdk 版本中 option 有所不同，具体可见最后的参考文档
 
 # jstack – 用来查看堆栈信息
+
+```
+Usage:
+    jstack [-l] <pid>
+        (to connect to running process)
+    jstack -F [-m] [-l] <pid>
+        (to connect to a hung process)
+    jstack [-m] [-l] <executable> <core>
+        (to connect to a core file)
+    jstack [-m] [-l] [server_id@]<remote server IP or hostname>
+        (to connect to a remote debug server)
+
+Options:
+    -F  to force a thread dump. Use when jstack <pid> does not respond (process is hung)
+    -m  to print both java and native frames (mixed mode)
+    -l  long listing. Prints additional information about locks
+    -h or -help to print this help message
+```
+
+示例
+
+`jstack -l 95980`
+
+内容过长，删除了一部分
+
+```s
+2020-12-26 23:54:06
+Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.144-b01 mixed mode):
+
+"DestroyJavaVM" #34 prio=5 os_prio=31 tid=0x00007f94fcdbc800 nid=0xf03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"http-nio-8080-Acceptor" #33 daemon prio=5 os_prio=31 tid=0x00007f94f77ea000 nid=0x9903 runnable [0x000070000c98b000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.ServerSocketChannelImpl.accept0(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:422)
+	at sun.nio.ch.ServerSocketChannelImpl.accept(ServerSocketChannelImpl.java:250)
+	- locked <0x000000077139e090> (a java.lang.Object)
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:469)
+	at org.apache.tomcat.util.net.NioEndpoint.serverSocketAccept(NioEndpoint.java:71)
+	at org.apache.tomcat.util.net.Acceptor.run(Acceptor.java:106)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+
+"http-nio-8080-ClientPoller" #32 daemon prio=5 os_prio=31 tid=0x00007f94f77c2000 nid=0x6c03 runnable [0x000070000c888000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:198)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:117)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	- locked <0x00000007715d6ca8> (a sun.nio.ch.Util$3)
+	- locked <0x00000007715d6c98> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x00000007715d6b78> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at org.apache.tomcat.util.net.NioEndpoint$Poller.run(NioEndpoint.java:711)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+
+"http-nio-8080-exec-10" #31 daemon prio=5 os_prio=31 tid=0x00007f94f77e9800 nid=0x6b03 waiting on condition [0x000070000c785000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077155fc40> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at org.apache.tomcat.util.threads.TaskQueue.take(TaskQueue.java:108)
+	at org.apache.tomcat.util.threads.TaskQueue.take(TaskQueue.java:33)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+
+"http-nio-8080-exec-1" #22 daemon prio=5 os_prio=31 tid=0x00007f94fe812000 nid=0x6203 waiting on condition [0x000070000be6a000]
+   java.lang.Thread.State: WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000077155fc40> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.park(LockSupport.java:175)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2039)
+	at java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:442)
+	at org.apache.tomcat.util.threads.TaskQueue.take(TaskQueue.java:108)
+	at org.apache.tomcat.util.threads.TaskQueue.take(TaskQueue.java:33)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+
+"http-nio-8080-BlockPoller" #21 daemon prio=5 os_prio=31 tid=0x00007f95004ef000 nid=0x6003 runnable [0x000070000bd67000]
+   java.lang.Thread.State: RUNNABLE
+	at sun.nio.ch.KQueueArrayWrapper.kevent0(Native Method)
+	at sun.nio.ch.KQueueArrayWrapper.poll(KQueueArrayWrapper.java:198)
+	at sun.nio.ch.KQueueSelectorImpl.doSelect(KQueueSelectorImpl.java:117)
+	at sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:86)
+	- locked <0x000000077139fb70> (a sun.nio.ch.Util$3)
+	- locked <0x000000077139fae8> (a java.util.Collections$UnmodifiableSet)
+	- locked <0x000000077139f718> (a sun.nio.ch.KQueueSelectorImpl)
+	at sun.nio.ch.SelectorImpl.select(SelectorImpl.java:97)
+	at org.apache.tomcat.util.net.NioBlockingSelector$BlockPoller.run(NioBlockingSelector.java:313)
+
+   Locked ownable synchronizers:
+	- None
+
+"HikariPool-1 housekeeper" #19 daemon prio=5 os_prio=31 tid=0x00007f94f7972800 nid=0x5c03 waiting on condition [0x000070000bb61000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x000000076e91c418> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+
+"container-0" #17 prio=5 os_prio=31 tid=0x00007f94f9433000 nid=0x5a03 waiting on condition [0x000070000b95b000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep(Native Method)
+	at org.apache.catalina.core.StandardServer.await(StandardServer.java:570)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer$1.run(TomcatWebServer.java:197)
+
+   Locked ownable synchronizers:
+	- None
+
+"Catalina-utility-1" #15 prio=1 os_prio=31 tid=0x00007f95000df800 nid=0xa703 waiting on condition [0x000070000b755000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at sun.misc.Unsafe.park(Native Method)
+	- parking to wait for  <0x00000006c081d398> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+   Locked ownable synchronizers:
+	- None
+
+"Attach Listener" #14 daemon prio=9 os_prio=31 tid=0x00007f94fc0c6000 nid=0xa80b waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Service Thread" #9 daemon prio=9 os_prio=31 tid=0x00007f94f8029000 nid=0x4003 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=31 tid=0x00007f94f7014800 nid=0x3c03 waiting on condition [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Signal Dispatcher" #4 daemon prio=9 os_prio=31 tid=0x00007f94f9035800 nid=0x3a03 runnable [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+   Locked ownable synchronizers:
+	- None
+
+"Finalizer" #3 daemon prio=8 os_prio=31 tid=0x00007f94f800c800 nid=0x4d03 in Object.wait() [0x000070000ad34000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000006c001e8c0> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+	- locked <0x00000006c001e8c0> (a java.lang.ref.ReferenceQueue$Lock)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:164)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:209)
+
+   Locked ownable synchronizers:
+	- None
+
+"Reference Handler" #2 daemon prio=10 os_prio=31 tid=0x00007f94f901c800 nid=0x4f03 in Object.wait() [0x000070000ac31000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	- waiting on <0x00000006c000f050> (a java.lang.ref.Reference$Lock)
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	- locked <0x00000006c000f050> (a java.lang.ref.Reference$Lock)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+   Locked ownable synchronizers:
+	- None
+
+"VM Thread" os_prio=31 tid=0x00007f94f8009800 nid=0x3003 runnable
+
+"GC task thread#0 (ParallelGC)" os_prio=31 tid=0x00007f94f780d000 nid=0x2407 runnable
+
+"GC task thread#7 (ParallelGC)" os_prio=31 tid=0x00007f94f780f800 nid=0x5103 runnable
+
+"VM Periodic Task Thread" os_prio=31 tid=0x00007f94f8032000 nid=0xa903 waiting on condition
+
+JNI global references: 1780
+```
+
+线程dump的分析工具：
+
+IBM Thread and Monitor Dump Analyze for Java【https://www.ibm.com/support/pages/ibm-thread-and-monitor-dump-analyzer-java-tmda】 一个小巧的Jar包，能方便的按状态，线程名称，线程停留的函数排序，快速浏览。
+http://spotify.github.io/threaddump-analyzer Spotify提供的Web版在线分析工具，可以将锁或条件相关联的线程聚合到一起。
+
+# 参考文档
+
+- Java7 https://docs.oracle.com/javase/7/docs/technotes/tools/
+- Java8 https://docs.oracle.com/javase/8/docs/technotes/tools/index.html
+- Java9 https://docs.oracle.com/javase/9/tools/tools-and-command-reference.htm#JSWOR596
+- Java10 https://docs.oracle.com/javase/10/tools/tools-and-command-reference.htm#JSWOR596
+- Java11 https://docs.oracle.com/en/java/javase/11/tools/tools-and-command-reference.html
+- Java12 https://docs.oracle.com/en/java/javase/12/tools/tools-and-command-reference.html
+- Java13 https://docs.oracle.com/en/java/javase/13/docs/specs/man/index.html
+- Java14 https://docs.oracle.com/en/java/javase/14/docs/specs/man/index.html
+- Java15 https://docs.oracle.com/en/java/javase/15/docs/specs/man/index.html
+- JavaAll https://docs.oracle.com/en/java/javase/index.html
