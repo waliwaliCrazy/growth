@@ -9,6 +9,7 @@
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
+- [自传](#自传)
 
 ---
 
@@ -52,6 +53,13 @@
 1. [HTTP 请求方法](articles/参考表/HTTP请求方法.md)
 2. [HTTP Content-type](./articles/参考表/HTTP%20Content-type.md)
 
+# 自传
+
+- [自传](./autobiography/README.md)
+- [第一夜 总纲](./autobiography/第一夜%20总纲.md)
+- [第二夜 编程伊始](./autobiography/第二夜%20编程伊始.md)
+- [第三夜 十二信徒](./autobiography/第三夜%20十二信徒.md)
+- [第四夜 初入峰鸟](./autobiography/第四夜%20初入峰鸟.md)
 
 ---
 
