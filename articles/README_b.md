@@ -1,17 +1,8 @@
 # Growth
 
-Your good friend, an amateur writer, is full of energy and ready to write again.
-
-Over the next year, a hundred articles will be planned to meet with you.
-
-Watch this space!
-
 > 我好像是一个在海边玩耍的孩子，不时为拾到比通常更光滑的石子或更美丽的 贝壳而欢欣鼓舞，而展现在我面前的是完全未探明的真理之海。
 
 **Table of Contents**
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
 
 - [Growth](#growth)
 - [学习资料](#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99)
@@ -32,8 +23,6 @@ Watch this space!
 - [项目推荐](#%E9%A1%B9%E7%9B%AE%E6%8E%A8%E8%8D%90)
 - [作者相关](#%E4%BD%9C%E8%80%85%E7%9B%B8%E5%85%B3)
 - [参考书籍和资料](#%E5%8F%82%E8%80%83%E4%B9%A6%E7%B1%8D%E5%92%8C%E8%B5%84%E6%96%99)
-
-<!-- /code_chunk_output -->
 
 > 主要内容
 
