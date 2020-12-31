@@ -39,7 +39,7 @@
 
 # 性能优化
 
-1. [MySQL 常见优化方法](articles/mysql/MySQL%20常见优化方案.md)
+1. [MySQL 常见优化方法](articles/MySQL/MySQL%20常见优化方案.md)
 
 # 互联网资源 Digital Library
 
@@ -60,6 +60,7 @@
 - [第二夜 编程伊始](./autobiography/第二夜%20编程伊始.md)
 - [第三夜 十二信徒](./autobiography/第三夜%20十二信徒.md)
 - [第四夜 初入峰鸟](./autobiography/第四夜%20初入峰鸟.md)
+- [第五夜 996 的大学生活](./autobiography/第五夜%20996的邯郸学院.md)
 
 ---
 
