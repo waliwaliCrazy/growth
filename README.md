@@ -61,6 +61,8 @@
 - [第五夜 996 的大学生活](./autobiography/第五夜%20996的邯郸学院.md)
 - [第六夜 大学前夕 黎明前的午夜](./autobiography/第六夜%20大学前夕.md)
 - [第七夜 连标题都是谎言](./autobiography/第七夜%20连标题都是谎言.md)
+- [第八夜 第一桶金](./autobiography/第八夜%20第一桶金.md)
+- [第九夜 我的信条](./autobiography/第九夜%20我的信条.md)
 
 ---
 
