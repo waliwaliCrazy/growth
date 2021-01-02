@@ -61,6 +61,8 @@
 - [第三夜 十二信徒](./autobiography/第三夜%20十二信徒.md)
 - [第四夜 初入峰鸟](./autobiography/第四夜%20初入峰鸟.md)
 - [第五夜 996 的大学生活](./autobiography/第五夜%20996的邯郸学院.md)
+- [第六夜 大学前夕 黎明前的午夜](./autobiography/第六夜%20大学前夕.md)
+- [第七夜 连标题都是谎言](./autobiography/第七夜%20连标题都是谎言.md)
 
 ---
 
