@@ -5,7 +5,7 @@
 ---
 
 - [文章列表](#文章列表)
-  - [linux](#linux)
+  - [Linux](#linux)
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
@@ -31,7 +31,7 @@
 10. [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
 
 
-## linux
+## Linux
 
 1. [Linux | 基本命令](articles/linux/基本命令.md)
 
