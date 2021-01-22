@@ -92,7 +92,7 @@ HTTP 状态码的英文为 HTTP Status Code。
 
 ## 206 Partial Content
 
-服务器已经成功处理了部分GET请求。类似于FlashGet或者迅雷这类的HTTP下载工具都是使用此类响应实现断点续传或者将一个大文档分解为多个下载段同时下载。[14]
+服务器已经成功处理了部分GET请求。类似于FlashGet或者迅雷这类的HTTP下载工具都是使用此类响应实现断点续传或者将一个大文档分解为多个下载段同时下载。
 ## 207 Multi-Status
 
 # 3xx重定向
