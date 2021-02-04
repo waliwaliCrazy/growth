@@ -87,7 +87,7 @@ Webdriver 需要根据不同的浏览器版本和操作系统下载对应版本
 
 ## 打开浏览器
 
-测试肯定需要打开浏览器了，这里以 `Microsoft Edge(新版本)` 为例
+测试肯定需要打开浏览器了，这里以 `Chrome` 为例
 
 ```python
 from selenium import webdriver
