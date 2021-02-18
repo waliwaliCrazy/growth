@@ -14,7 +14,6 @@
 # 常用函数
 
 - 获取系统日期: NOW()
-- 
 - 格式化日期: DATE_FORMAT(date, format)
 
 注： date：时间字段
