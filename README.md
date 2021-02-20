@@ -35,7 +35,7 @@
 
 1. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
 1. [Python | Python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
-
+1. [Python | Python 使用 consul 做服务发现](./archive/Python/Python%20使用%20consul%20做服务发现.md)
 ### Go
 
 1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./archive/Go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
