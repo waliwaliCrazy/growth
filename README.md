@@ -38,8 +38,10 @@
 
 ### Go
 
-1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./articles/go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
-1. [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
+1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./archive/Go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
+2. [Go | Gin 解决跨域问题跨域配置](./archive/Go/Gin%20解决跨域问题跨域配置.md)
+3. [Go | Go 使用 consul 做服务发现](./archive/Go/Go%20使用%20consul%20做服务发现.md)
+4. [Go | Go 发送 http 请求post，get，put，delete请求示例代码](./archive/Go/Go%20发送%20http%20请求post，get，put，delete请求示例代码.md)
 
 ### Linux
 
@@ -47,7 +49,7 @@
 
 ### MySQL
 
-1. [MySQL | 使用 limit 优化查询和防止SQL被优化](archive/MySQL/使用%20limit%20优化查询和防止SQL被优化.md)
+1. [MySQL | 使用 limit 优化查询和防止 SQL 被优化](archive/MySQL/使用%20limit%20优化查询和防止SQL被优化.md)
 
 ### 其他
 
