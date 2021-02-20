@@ -14,6 +14,7 @@
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
+- [读书笔记](#读书笔记)
 - [自传](#自传)
 
 ---
@@ -70,6 +71,11 @@
 1. [HTTP 状态码](articles/参考表/HTTP状态码大全.md)
 1. [HTTP 请求方法](articles/参考表/HTTP请求方法.md)
 2. [HTTP Content-type](./articles/参考表/HTTP%20Content-type.md)
+
+# 读书笔记
+
+- [经济学原理：经济学十大原理](./读书笔记/经济学原理：经济学十大原理.md)
+
 
 # 自传
 
