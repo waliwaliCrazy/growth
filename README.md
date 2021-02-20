@@ -5,7 +5,12 @@
 ---
 
 - [文章列表](#文章列表)
-  - [Linux](#linux)
+    - [Java](#java)
+    - [Python](#python)
+    - [Go](#go)
+    - [Linux](#linux)
+    - [MySQL](#mysql)
+    - [其他](#其他)
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
@@ -15,27 +20,40 @@
 
 # 文章列表
 
-1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./articles/go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
-1. [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
+### Java
+
 1. [Java | Guava EventBus 使用](./articles/java/Guava%20EventBus%20使用.md)
 1. [Java | MyBatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
 1. [Java | Java 解决跨域问题](./articles/java/Java%20解决跨域问题.md)
-2. [Java | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
-3. [Java | 在 Java 中执行动态表达式语句 OGNL、Groovy、Jexl3、SpEL](./archive/Java/在%20Java%20中执行动态表达式语句%20OGNL,%20Groovy,%20Jexl3.md)
-8. [Java | 从本地缓存到分布式缓存](./archive/Java/从本地缓存到分布式缓存.md)
-9.  [Java | 创建一个 Spring Boot 项目都需要做什么](./archive/Java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
-10. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
-11. [Python | python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
-12. [Git | Git Server 搭建](./archive/Git/Git%20Server%20搭建.md)
-13. [Algorithm | 斐波那契数列](articles/algorithm/斐波那契数列.md)
-14. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
-15. [MySQL | 使用 limit 优化查询和防止SQL被优化](archive/MySQL/使用%20limit%20优化查询和防止SQL被优化.md)
-16. [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
+1. [Java | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
+1. [Java | 在 Java 中执行动态表达式语句 OGNL、Groovy、Jexl3、SpEL](./archive/Java/在%20Java%20中执行动态表达式语句%20OGNL,%20Groovy,%20Jexl3.md)
+1. [Java | 从本地缓存到分布式缓存](./archive/Java/从本地缓存到分布式缓存.md)
+1.  [Java | 创建一个 Spring Boot 项目都需要做什么](./archive/Java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
 
+### Python
 
-## Linux
+1. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
+1. [Python | python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
+
+### Go
+
+1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./articles/go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
+1. [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
+
+### Linux
 
 1. [Linux | 基本命令](articles/linux/基本命令.md)
+
+### MySQL
+
+1. [MySQL | 使用 limit 优化查询和防止SQL被优化](archive/MySQL/使用%20limit%20优化查询和防止SQL被优化.md)
+
+### 其他
+
+5. [Git | Git Server 搭建](./archive/Git/Git%20Server%20搭建.md)
+6. [Algorithm | 斐波那契数列](articles/algorithm/斐波那契数列.md)
+7. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
+9.  [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
 
 # 性能优化
 
