@@ -37,7 +37,7 @@
 ## 2. 服务注册
 在网络编程中，一般会提供项目的 IP、PORT、PROTOCOL，在服务治理中，我们还需要知道对应的服务名、实例名以及一些自定义的扩展信息
 
-在这里使用 `ServiceInstance` 接口来规定注册服务时必须的一些信息，同时用 `DefaultServiceInstance` 实现
+在这里使用 `ServiceInstance` 接口来规定注册服务时必须的一些信息
 
 ```python
 class ServiceInstance:
