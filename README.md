@@ -57,6 +57,7 @@
 6. [Algorithm | 斐波那契数列](./archive/Algorithm/斐波那契数列.md)
 7. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
 8.  [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
+9. [开发规范 | DRY 不要重复自己](./archive/开发规范/DRY%20不要重复自己.md) 
 
 # 性能优化
 
