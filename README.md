@@ -5,35 +5,65 @@
 ---
 
 - [文章列表](#文章列表)
-  - [Linux](#linux)
+    - [Java](#java)
+    - [Python](#python)
+    - [Go](#go)
+    - [Linux](#linux)
+    - [MySQL](#mysql)
+    - [Redis](#redis)
+    - [其他](#其他)
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
 - [参考表](#参考表)
+- [读书笔记](#读书笔记)
 - [自传](#自传)
 
 ---
 
 # 文章列表
 
-1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./articles/go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
-1. [Go | Gin 解决跨域问题跨域配置](./articles/go/Gin%20解决跨域问题跨域配置.md)
+### Java
+
 1. [Java | Guava EventBus 使用](./articles/java/Guava%20EventBus%20使用.md)
-1. [Java | Mybatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
+1. [Java | MyBatis 配置多数据源](./articles/java/Mybatis%20配置多数据源.md)
 1. [Java | Java 解决跨域问题](./articles/java/Java%20解决跨域问题.md)
-2. [Java | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
-3. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
-4. [Python | python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
-5. [Git | Git Server 搭建](./articles/git/Git%20|%20Git%20Server%20搭建.md)
-6. [Algorithm | 斐波那契数列](articles/algorithm/斐波那契数列.md)
-7. [缓存 | 从本地缓存到分布式缓存](./artic/../articles/java/从本地缓存到分布式缓存.md)
-8. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
-9. [Spring Boot | 创建一个 Spring Boot 项目都需要做什么](articles/java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
-10. [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
+1. [Java | Lombok 使用以及避坑指南](./articles/java/Lombok%20使用.md)
+1. [Java | 在 Java 中执行动态表达式语句 OGNL、Groovy、Jexl3、SpEL](./archive/Java/在%20Java%20中执行动态表达式语句%20OGNL,%20Groovy,%20Jexl3.md)
+1. [Java | 从本地缓存到分布式缓存](./archive/Java/从本地缓存到分布式缓存.md)
+1. [Java | 创建一个 Spring Boot 项目都需要做什么](./archive/Java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
 
+### Python
 
-## Linux
+1. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
+1. [Python | Python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
+1. [Python | Python 使用 consul 做服务发现](./archive/Python/Python%20使用%20consul%20做服务发现.md)
+### Go
+
+1. [Go | Go 语言打包静态文件以及如何与Gin一起使用Go-bindata](./archive/Go/Go%20语言打包静态文件以及如何与Gin一起使用Go-bindata.md)
+2. [Go | Gin 解决跨域问题跨域配置](./archive/Go/Gin%20解决跨域问题跨域配置.md)
+3. [Go | Go 使用 consul 做服务发现](./archive/Go/Go%20使用%20consul%20做服务发现.md)
+4. [Go | Go 发送 http 请求post，get，put，delete请求示例代码](./archive/Go/Go%20发送%20http%20请求post，get，put，delete请求示例代码.md)
+
+### Linux
 
 1. [Linux | 基本命令](articles/linux/基本命令.md)
+
+### MySQL
+
+1. [MySQL | 使用 limit 优化查询和防止 SQL 被优化](archive/MySQL/使用%20limit%20优化查询和防止SQL被优化.md)
+
+### Redis
+
+- [Redis | Redis 开发与运维](./articles/redis/Redis%20开发和运维.md)
+- [Redis | Redis 初级篇](./articles/redis/初级篇.md)
+
+### 其他
+
+5. [Git | Git Server 搭建](./archive/Git/Git%20Server%20搭建.md)
+6. [Algorithm | 斐波那契数列](./archive/Algorithm/斐波那契数列.md)
+7. [微服务 | Spring Cloud(一)：从单体SSM 到 Spring Cloud](./articles/微服务/Spring%20Cloud(一)：从单体SSM%20到%20Spring%20Cloud.md)
+8.  [工具 | 听说你还在找 IDEA (JetBrains) 激活码, 试试她吧](./articles/tools/IDEA_EAP.md)
+9. [开发规范 | DRY 不要重复自己](./archive/开发规范/DRY%20不要重复自己.md) 
 
 # 性能优化
 
@@ -47,9 +77,18 @@
 
 # 参考表
 
-1. [HTTP 状态码](articles/参考表/HTTP状态码大全.md)
-1. [HTTP 请求方法](articles/参考表/HTTP请求方法.md)
+- [HTTP 状态码](./archive/参考表/HTTP状态码大全.md)
+- [HTTP 请求方法](./archive/参考表/HTTP请求方法.md)
 2. [HTTP Content-type](./articles/参考表/HTTP%20Content-type.md)
+
+# 读书笔记
+
+- [读书笔记 | 经济学原理：经济学十大原理](./读书笔记/经济学原理：经济学十大原理.md)
+- [读书笔记 | 经济学原理：人们会对激励作出反应](./读书笔记/经济学原理：人们会对激励作出反应.md)
+- [读书笔记 | 经济学原理：最简单供需关系](./读书笔记/经济学原理：最简单供需关系.md)
+- [读书笔记 | 经济学原理：沉默成本、机会成本和边际成本](./读书笔记/经济学原理：沉默成本、机会成本和边际成本.md)
+- [读书笔记 | 经济学原理：机会成本、比较优势、贸易互助](./读书笔记/经济学原理：机会成本、比较优势、贸易互助.md)
+- [心理学：约拿情结（Jonas-Komplex）人不怕出名，但猪肯定怕壮](./读书笔记/心理学：约拿情结.md)
 
 # 自传
 
