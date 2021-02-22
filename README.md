@@ -10,6 +10,7 @@
     - [Go](#go)
     - [Linux](#linux)
     - [MySQL](#mysql)
+    - [Redis](#redis)
     - [其他](#其他)
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
@@ -50,6 +51,11 @@
 ### MySQL
 
 1. [MySQL | 使用 limit 优化查询和防止 SQL 被优化](archive/MySQL/使用%20limit%20优化查询和防止SQL被优化.md)
+
+### Redis
+
+- [Redis | Redis 开发与运维](./articles/redis/Redis%20开发和运维.md)
+- [Redis | Redis 初级篇](./articles/redis/初级篇.md)
 
 ### 其他
 
