@@ -45,17 +45,5 @@ Redis-key操作			|
 		* 清空当前数据库中的所有key
 	flushall	
 		* 清空所有数据库中的所有key
-	strlen key
-		* 返回指定key的value的长度
-	set 命令还支持可选的NX选项和XX选项
-		* 如果添加了NX选项,那么set操作的时候会判断key值是否存在,如果存在那么不会做覆盖操作.如果不存在,那么就会正常存入
-		* 如果添加了XX选项,那么set操作的时候会判断key值是否存在,如果存在,那么就执行操作进行覆盖,如果不存在,那么不会执行任何操作
-		* 添加了NX/XX选项的命令,执行成功返回ok,失败返回nil
-		* 例:
-			* set name Kevin NX		//name这个key如果已经存在.那么就不会进行任何操作	
-			* set name Kevin XX		//name这个key必须是存在的.才会进行存储覆盖.反之不会做任何的操作
-		* 针对于防止覆盖,其实还有一种写法
-			* SETNX key value;		//同样,如果key已经存在那么不会执行写入操作,设置失败返回0,成功返回1
-			* MSETNX key value key value ...
-				* 如果有一个key是存在的,那么批量的插入都不会执行
+
 		
