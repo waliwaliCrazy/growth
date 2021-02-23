@@ -79,7 +79,7 @@
 
 - [HTTP 状态码](./archive/参考表/HTTP状态码大全.md)
 - [HTTP 请求方法](./archive/参考表/HTTP请求方法.md)
-2. [HTTP Content-type](./articles/参考表/HTTP%20Content-type.md)
+- [HTTP Content-type](./archive/参考表/HTTP%20Content-type.md)
 
 # 读书笔记
 
