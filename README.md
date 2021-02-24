@@ -43,6 +43,7 @@
 2. [Go | Gin 解决跨域问题跨域配置](./archive/Go/Gin%20解决跨域问题跨域配置.md)
 3. [Go | Go 使用 consul 做服务发现](./archive/Go/Go%20使用%20consul%20做服务发现.md)
 4. [Go | Go 发送 http 请求post，get，put，delete请求示例代码](./archive/Go/Go%20发送%20http%20请求post，get，put，delete请求示例代码.md)
+5. [Go | Go 结合 Consul 实现动态反向代理](./articles/Go/Go%20结合%20Consul%20实现动态反向代理.md)
 
 ### Linux
 
