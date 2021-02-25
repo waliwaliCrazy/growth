@@ -24,7 +24,7 @@
 
 
 
-![Spring Cloud Gateway 流程图](C:\Users\zhangyunan\project\growth\img\scg.png)
+![Spring Cloud Gateway 流程图](./../../img/scg.png)
 
 
 
