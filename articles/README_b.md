@@ -134,10 +134,6 @@
 * rabbitmq
 * rokt
 
-# 面试相关
-
-[详见](it/interview/)
-
 # 项目推荐
 
 - awesome 相关项目
