@@ -31,12 +31,15 @@
 1. [Java | 在 Java 中执行动态表达式语句 OGNL、Groovy、Jexl3、SpEL](./archive/Java/在%20Java%20中执行动态表达式语句%20OGNL,%20Groovy,%20Jexl3.md)
 1. [Java | 从本地缓存到分布式缓存](./archive/Java/从本地缓存到分布式缓存.md)
 1. [Java | 创建一个 Spring Boot 项目都需要做什么](./archive/Java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
-2. [Java | zuul 1.x 是如何实现请求转发的](./archive/../articles/java/zuul%20是如何实现请求转发的.md)
+2. [Java | zuul 1.x 是如何实现请求转发的](./archive/Java/zuul%20是如何实现请求转发的.md)
+
+9. [Java | Spring Cloud Gateway 是如何工作的](./archive/Java/Spring Cloud Gateway 是如何工作的.md)
+
 
 ### Python
 
-1. [Python | Flask 解决跨域问题](./articles/python/Flask%20解决跨域问题.md)
-1. [Python | Python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](articles/python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
+1. [Python | Flask 解决跨域问题](./archive/Python/Flask%20解决跨域问题.md)
+1. [Python | Python 实现RSA加解密 验签 无 长度限制 加密解密, 分段加密](./archive/Python/python%20实现RSA加解密%20验签%20无%20长度限制%20加密解密,%20分段加密.md)
 1. [Python | Python 使用 consul 做服务发现](./archive/Python/Python%20使用%20consul%20做服务发现.md)
 
 ### Go
