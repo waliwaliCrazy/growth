@@ -31,6 +31,7 @@
 1. [Java | 在 Java 中执行动态表达式语句 OGNL、Groovy、Jexl3、SpEL](./archive/Java/在%20Java%20中执行动态表达式语句%20OGNL,%20Groovy,%20Jexl3.md)
 1. [Java | 从本地缓存到分布式缓存](./archive/Java/从本地缓存到分布式缓存.md)
 1. [Java | 创建一个 Spring Boot 项目都需要做什么](./archive/Java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
+2. [Java | zuul 1.x 是如何实现请求转发的](./archive/../articles/java/zuul%20是如何实现请求转发的.md)
 
 ### Python
 
