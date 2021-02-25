@@ -17,6 +17,8 @@
   - [ZuulRunner 核心代码](#zuulrunner-核心代码)
   - [RequestContext 核心代码](#requestcontext-核心代码)
   - [FilterProcessor 核心代码](#filterprocessor-核心代码)
+  - [在官方示例中，提供了两个简单的 Route 的 ZuulFilter 实现](#在官方示例中提供了两个简单的-route-的-zuulfilter-实现)
+- [总结](#总结)
 - [参考](#参考)
 
 ---
@@ -39,7 +41,6 @@ Here are some links to help you learn more about the Zuul Project. Feel free to 
 2. 根据一些规则，修改新请求的请求指向
 3. 把新请求发送到根据服务器端，并接收到服务器端返回的响应
 4. 将上一步的响应根据需求处理一下，然后返回给客户端
-
 
 # 源码
 
@@ -397,7 +398,182 @@ public class FilterProcessor {
         }
     }
 }
-
 ```
 
+
+
+通过上面的代码中，可以看到得到简单的流程图
+
+
+
+![zuul](/img/zuul_filter.png)
+
+
+
+## 在官方示例中，提供了两个简单的 Route 的 ZuulFilter 实现
+
+
+
+**SimpleHostRoutingFilter.groovy**
+
+
+
+在这个示例中，在 Filter 实现中将请求复制并转发到目标服务，这个是简单的逻辑
+
+
+
+```java
+class SimpleHostRoutingFilter extends ZuulFilter {
+
+  	// 声明这个过滤器是 route 类型
+    @Override
+    String filterType() {
+        return 'route'
+    }
+
+  	// 过滤器的执行逻辑
+    Object run() {
+        HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+        Header[] headers = buildZuulRequestHeaders(request)
+        String verb = getVerb(request);
+        InputStream requestEntity = request.getInputStream();
+        CloseableHttpClient httpclient = CLIENT.get()
+
+        String uri = request.getRequestURI()
+        if (RequestContext.getCurrentContext().requestURI != null) {
+            uri = RequestContext.getCurrentContext().requestURI
+        }
+
+        try {
+          	// 将请求转发到指定服务器
+            HttpResponse response = forward(httpclient, verb, uri, request, headers, requestEntity)
+            setResponse(response)
+        } catch (Exception e) {
+            throw e;
+        }
+        return null
+    }
+
+    HttpResponse forward(CloseableHttpClient httpclient, String verb, String uri, HttpServletRequest request, Header[] headers, InputStream requestEntity) {
+
+        requestEntity = debug(verb, uri, request, headers, requestEntity)
+        HttpHost httpHost = getHttpHost()
+        HttpRequest httpRequest;
+
+        switch (verb) {
+            case 'POST':
+                httpRequest = new HttpPost(uri + getQueryString())
+                InputStreamEntity entity = new InputStreamEntity(requestEntity, request.getContentLength())
+                httpRequest.setEntity(entity)
+                break
+            case 'PUT':
+                httpRequest = new HttpPut(uri + getQueryString())
+                InputStreamEntity entity = new InputStreamEntity(requestEntity, request.getContentLength())
+                httpRequest.setEntity(entity)
+                break;
+            default:
+                httpRequest = new BasicHttpRequest(verb, uri + getQueryString())
+        }
+
+        try {
+            httpRequest.setHeaders(headers)
+            return forwardRequest(httpclient, httpHost, httpRequest)
+        } finally {
+            //httpclient.close();
+        }
+    }
+
+    HttpResponse forwardRequest(HttpClient httpclient, HttpHost httpHost, HttpRequest httpRequest) {
+        return httpclient.execute(httpHost, httpRequest);
+    }
+}
+```
+
+
+
+**ZuulNFRequest 结合 Netflix 的 route 过滤器**
+
+
+
+这个示例中，从 `HttpClient` 转发改为了使用 `RibbonCommand` 转发，从而使用了 Ribbon 的功能。关于 `Ribbon` 以后有时间再说
+
+
+
+```java
+class ZuulNFRequest extends ZuulFilter {
+
+    @Override
+    String filterType() {
+        return 'route'
+    }
+
+    boolean shouldFilter() {
+        return NFRequestContext.currentContext.getRouteHost() == null && RequestContext.currentContext.sendZuulResponse()
+    }
+
+    Object run() {
+        NFRequestContext context = NFRequestContext.currentContext
+        HttpServletRequest request = context.getRequest();
+
+        MultivaluedMap<String, String> headers = buildZuulRequestHeaders(request)
+        MultivaluedMap<String, String> params = buildZuulRequestQueryParams(request)
+        Verb verb = getVerb(request);
+        Object requestEntity = getRequestBody(request)
+        IClient restClient = ClientFactory.getNamedClient(context.getRouteVIP());
+
+        String uri = request.getRequestURI()
+        if (context.requestURI != null) {
+            uri = context.requestURI
+        }
+        //remove double slashes
+        uri = uri.replace("//", "/")
+
+        HttpResponse response = forward(restClient, verb, uri, headers, params, requestEntity)
+        setResponse(response)
+        return response
+    }
+
+    def HttpResponse forward(RestClient restClient, Verb verb, uri, MultivaluedMap<String, String> headers, MultivaluedMap<String, String> params, InputStream requestEntity) {
+        debug(restClient, verb, uri, headers, params, requestEntity)
+
+//        restClient.apacheHttpClient.params.setVirtualHost(headers.getFirst("host"))
+
+        String route = NFRequestContext.getCurrentContext().route
+        if (route == null) {
+            String path = RequestContext.currentContext.requestURI
+            if (path == null) {
+                path = RequestContext.currentContext.getRequest() getRequestURI()
+            }
+            route = "route" //todo get better name
+        }
+        route = route.replace("/", "_")
+
+
+        RibbonCommand<AbstractLoadBalancerAwareClient<HttpRequest, HttpResponse>> command = new RibbonCommand<>(restClient, verb, uri, headers, params, requestEntity);
+        try {
+            HttpResponse response = command.execute();
+            return response
+        } catch (HystrixRuntimeException e) {
+            if (e?.fallbackException?.cause instanceof ClientException) {
+                ClientException ex = e.fallbackException.cause as ClientException
+                throw new ZuulException(ex, "Forwarding error", 500, ex.getErrorType().toString())
+            }
+            throw new ZuulException(e, "Forwarding error", 500, e.failureType.toString())
+        }
+    }
+}
+```
+
+
+
+
+
+# 总结
+
+从 zuul 实现中看，还是基于 Servlet 的，并在过程中加入 前、中、后和异常处理链。因为基于 Servlet 其处理流程是阻塞的，性能会有所下降。
+
+在 zuul 里面采用了 java 和 groovy 混合编程的方式，编程更加灵活。通过自定了一个 GroovyCompiler 来加载指定路径的 groovy 文件来实现在运行中动态添加 ZuulFilter 这种动态机制在一定程度上实现了热更新 ZuulFilter 功能，也是值得学习的。
+
 # 参考
+
+GitHub: https://github.com/Netflix/zuul
