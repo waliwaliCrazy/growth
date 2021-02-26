@@ -33,6 +33,7 @@
 1. [Java | 创建一个 Spring Boot 项目都需要做什么](./archive/Java/创建一个%20Spring%20Boot%20项目都需要做什么.md)
 2. [Java | zuul 1.x 是如何实现请求转发的](./archive/Java/zuul%20是如何实现请求转发的.md)
 3. [Java | Spring Cloud Gateway 是如何工作的](./archive/Java/Spring%20Cloud%20Gateway%20是如何工作的.md)
+1. [Java | Spring Cloud Commons 之服务发现浅析](./archive/Java/Spring%20Cloud%20Common%20之服务发现浅析.md)
 
 ### Python
 
