@@ -17,6 +17,19 @@
 - [参考表](#参考表)
 - [读书笔记](#读书笔记)
 - [自传](#自传)
+- [入门](#入门)
+- [中级篇](#中级篇)
+- [高级篇](#高级篇)
+- [工程化](#工程化)
+- [基础设施](#基础设施)
+- [缓存篇](#缓存篇)
+- [数据持久化](#数据持久化)
+- [数据库](#数据库)
+- [安全和加密](#安全和加密)
+- [监控](#监控)
+- [任务调度](#任务调度)
+- [服务](#服务)
+- [消息](#消息)
 
 ---
 
@@ -107,6 +120,107 @@
 - [第七夜 连标题都是谎言](./autobiography/第七夜%20连标题都是谎言.md)
 - [第八夜 第一桶金](./autobiography/第八夜%20第一桶金.md)
 - [第九夜 我的信条](./autobiography/第九夜%20我的信条.md)
+
+# 入门
+
+* 编程语言：Java / Python / C++ / Go / 等等
+* Web框架，如Spring MVC、Flask、Django等等
+* ORM框架，如Spring JDBC、Mybatis、Hibernate、JPA、jade、sqlalchemy、django orm
+* HTTP协议基础
+    
+# 中级篇
+
+* Java 反射和注解的使用
+* AOP编程
+* 项目调试
+* 数据结构与算法
+* 面向对象编程
+* 网络通信协议，如TCP / Socket
+* linux 常用命令以及环境搭建
+* [Spring 篇](it/Spring/)
+
+# 高级篇
+
+* 网络通信协议，如TCP / Socket,以及 netty
+* 函数式编程
+* 领域驱动设计
+* MVC架构
+* 运行环境优化，如JVM
+* [设计模式](it/designPattern/)
+* 事务,如多数据源事务、分布式事务
+    
+# 工程化
+
+* 版本管理 GIT、SVN
+* 单元测试
+* 包管理 maven、gradle、pip、venv
+
+# 基础设施
+
+* 虚拟化，如Docker
+* 自动化部署
+* 应用包创建、管理、发布
+* 发布脚本编写
+* Maven 私服搭建和使用
+
+# 缓存篇
+
+* 应用层缓存 
+* 平台缓存
+* 数据库端缓存
+* 分布式缓存 
+
+# 数据持久化
+
+* SQL
+* NoSQL
+* ORM
+* 搜索引擎 elasticsearch、solr
+
+# 数据库
+
+* 查询性能优化
+* 结构优化
+* 主从复制、主主复制等等
+* 伸缩性与高可用性
+* 备份恢复与容灾
+
+# 安全和加密
+
+* 认证与会话管理
+* 加密解密
+* 数字签名、数字证书
+* 加密算法
+* XSS/CSRF/SQL注入
+
+# 监控
+
+* 应用性能监控
+* 异常监控
+* 日志
+* 流量监控
+
+# 任务调度
+
+* cron
+* Quartz
+* xxl-job
+* spring task
+* elastic-job
+
+# 服务
+
+* RESTful
+* MicroServices
+
+# 消息
+
+* JMS
+* activemq
+* kafka
+* rabbitmq
+* rokt
+
 
 ---
 
