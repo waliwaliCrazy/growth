@@ -49,7 +49,8 @@
 2. [Java | zuul 1.x 是如何实现请求转发的](./archive/Java/zuul%20是如何实现请求转发的.md)
 3. [Java | Spring Cloud Gateway 是如何工作的](./archive/Java/Spring%20Cloud%20Gateway%20是如何工作的.md)
 1. [Java | Spring Cloud Commons 之服务发现浅析](./archive/Java/Spring%20Cloud%20Common%20之服务发现浅析.md)
-2. [Java | Apollo 是如何实现配置更新的](./articles/java/Apollo%20是如何实现配置更新的.md)
+2. [Java | Apollo 是如何实现配置更新的](./archive/java/Apollo%20是如何实现配置更新的.md)
+3. [Java | Spring Redis Lock 配置](./archive/Java/Spring%20Redis%20Lock%20配置.md)
 
 ### Python
 
@@ -63,7 +64,7 @@
 2. [Go | Gin 解决跨域问题跨域配置](./archive/Go/Gin%20解决跨域问题跨域配置.md)
 3. [Go | Go 使用 consul 做服务发现](./archive/Go/Go%20使用%20consul%20做服务发现.md)
 4. [Go | Go 发送 http 请求post，get，put，delete请求示例代码](./archive/Go/Go%20发送%20http%20请求post，get，put，delete请求示例代码.md)
-5. [Go | Go 结合 Consul 实现动态反向代理](./articles/Go/Go%20结合%20Consul%20实现动态反向代理.md)
+5. [Go | Go 结合 Consul 实现动态反向代理](./archive/Go/Go%20结合%20Consul%20实现动态反向代理.md)
 
 ### Linux
 
