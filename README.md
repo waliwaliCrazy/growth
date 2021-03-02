@@ -51,6 +51,7 @@
 1. [Java | Spring Cloud Commons 之服务发现浅析](./archive/Java/Spring%20Cloud%20Common%20之服务发现浅析.md)
 2. [Java | Apollo 是如何实现配置更新的](./archive/java/Apollo%20是如何实现配置更新的.md)
 3. [Java | Spring Redis Lock 配置](./archive/Java/Spring%20Redis%20Lock%20配置.md)
+4. [Java | Spring Data REST 快速构建 restful api 应用](./archive/Java/Spring%20Data%20REST%20快速构建%20restful%20api%20应用,再也不用担心加班了.md)
 
 ### Python
 
