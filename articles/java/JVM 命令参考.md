@@ -26,10 +26,10 @@ Definitions:
 **参数**
 
 - -q 仅仅显示VM 标示，不显示jar,class, main参数等信息.
-- -l 输出应用程序主类完整package名称或jar完整名称 
-- -v 显示出jvm参数
+- -l 输出应用程序主类完整 package 名称或 jar 完整名称 
+- -v 显示出 jvm 参数
 - -m 显示出传递给main函数的参数
-- -V 输出通过.hotsportrc或-XX:Flags=<filename>指定的jvm参数
+- -V 输出通过 .hotsportrc 或 -XX:Flags=<filename> 指定的 jvm 参数
 - hostid 指定特定主机，可以是ip地址和域名, 也可以指定具体协议，端口。
 
 **示例**
