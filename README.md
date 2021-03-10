@@ -52,6 +52,7 @@
 2. [Java | Apollo 是如何实现配置更新的](./archive/java/Apollo%20是如何实现配置更新的.md)
 3. [Java | Spring Redis Lock 配置](./archive/Java/Spring%20Redis%20Lock%20配置.md)
 4. [Java | Spring Data REST 快速构建 restful api 应用](./archive/Java/Spring%20Data%20REST%20快速构建%20restful%20api%20应用,再也不用担心加班了.md)
+5. [Java | 实现一个 ORM 到底有多简单](./archive/Java/简单的ORM实现.md)
 
 ### Python
 
