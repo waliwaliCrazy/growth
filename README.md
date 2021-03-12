@@ -11,6 +11,7 @@
     - [Linux](#linux)
     - [MySQL](#mysql)
     - [Redis](#redis)
+    - [分布式](#分布式)
     - [其他](#其他)
 - [性能优化](#性能优化)
 - [互联网资源 Digital Library](#互联网资源-digital-library)
@@ -81,6 +82,11 @@
 
 - [Redis | Redis 开发与运维](./articles/redis/Redis%20开发和运维.md)
 - [Redis | Redis 初级篇](./articles/redis/初级篇.md)
+
+### 分布式
+
+- [分布式 | 分布式锁实现](./archive/分布式/分布式锁实现.md)
+- [分布式 | 常见负载算法](./archive/分布式/常见负载算法.md)
 
 ### 其他
 
