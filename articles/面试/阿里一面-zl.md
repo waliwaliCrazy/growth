@@ -56,7 +56,7 @@ Spring Cloud Gateway
 2. 程序计数器（PC Register）
 3. 虚拟机栈（JVM Stack)
 4. 本地方法栈（Native Stack)
-5. 元空间（MetaSpace）: 原方法区，bao
+5. 元空间（MetaSpace）: 原方法区
 
 
 

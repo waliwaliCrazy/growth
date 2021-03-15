@@ -20,7 +20,7 @@
 18. 说一下当两个线程获取 **synchronized** 时发生了什么？
 19. 说一下当两个线程获取 **ReentranLock** 时发生了什么？
 20. Java 内置的线程池有哪些
-21. ScheduledExecutorService 是如何实现的 （说了 Timer, 具体不知道）
+21. ScheduledExecutorService 是如何实现的？ （说了 Timer, 具体不知道）
 22. 要是你如何实现 ScheduledExecutorService？说了 Timer  和 用while 1s 取队列的方式实现
 23. 常见的限流方案
 24. NIO 原理？说了同步非阻塞，多路复用，windows 的 selector, linux 的 epoll
