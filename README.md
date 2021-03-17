@@ -54,6 +54,7 @@
 3. [Java | Spring Redis Lock 配置](./archive/Java/Spring%20Redis%20Lock%20配置.md)
 4. [Java | Spring Data REST 快速构建 restful api 应用](./archive/Java/Spring%20Data%20REST%20快速构建%20restful%20api%20应用,再也不用担心加班了.md)
 5. [Java | 实现一个 ORM 到底有多简单](./archive/Java/简单的ORM实现.md)
+1. [Java | 实现一个简单的 IOC 容器 (一)](./archive/Java/实现一个简单的%20IOC%20容器(一).md)
 
 ### Python
 
@@ -140,7 +141,7 @@
 * Web框架，如Spring MVC、Flask、Django等等
 * ORM框架，如Spring JDBC、Mybatis、Hibernate、JPA、jade、sqlalchemy、django orm
 * HTTP协议基础
-    
+  
 # 中级篇
 
 * Java 反射和注解的使用
@@ -161,7 +162,7 @@
 * 运行环境优化，如JVM
 * [设计模式](it/designPattern/)
 * 事务,如多数据源事务、分布式事务
-    
+  
 # 工程化
 
 * 版本管理 GIT、SVN
