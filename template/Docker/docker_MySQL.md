@@ -1,7 +1,7 @@
 ```s
 docker run --name mysql5 \
-    -p 3306:3306 \
-    -v C:/volumes/mysql/datadir:/var/lib/mysql \
+    -p 13306:3306 \
+    -v D:/docker/volumns/mysql8/datadir:/var/lib/mysql \
     -e MYSQL_ROOT_PASSWORD=123456 \
-    -d mysql:5
+    -d mysql:8
 ```
